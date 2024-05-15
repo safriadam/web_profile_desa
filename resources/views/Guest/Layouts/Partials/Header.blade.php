@@ -76,21 +76,21 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav me-auto p-3 p-lg-0 mx-auto">
-            <a href="/" class="nav-item nav-link {{ Request::is('/') ? 'active' : '' }}">BERANDA</a>
+            <a href="{{url('/') }}" class="nav-item nav-link {{ Request::is('/') ? 'active' : '' }}">BERANDA</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle {{ Request::is('about', 'structure') ? 'active' : '' }}"
                     data-bs-toggle="dropdown">PROFIL</a>
                 <div class="dropdown-menu border-0 rounded-0 rounded-bottom m-0">
-                    <a href="/about" class="dropdown-item">TENTANG KAMI</a>
-                    <a href="/structure" class="dropdown-item">STRUKTUR ORGANISASI</a>
+                    <a href="{{ url('/about') }}" class="dropdown-item">TENTANG KAMI</a>
+                    <a href="{{ url('/structure') }}" class="dropdown-item">STRUKTUR ORGANISASI</a>
                 </div>
             </div>
-            <a href="/prestasi-sekolah"
+            <a href="{{ url('/prestasi-sekolah') }}"
                 class="nav-item nav-link {{ Request::is('prestasi-sekolah') ? 'active' : '' }}">PRESTASI SEKOLAH</a>
-            <a href="/kegiatan" class="nav-item nav-link {{ Request::is('kegiatan') ? 'active' : '' }}">KEGIATAN</a>
-            <a href="/pengumuman"
+            <a href="{{ url('/kegiatan') }}" class="nav-item nav-link {{ Request::is('kegiatan') ? 'active' : '' }}">KEGIATAN</a>
+            <a href="{{ url('/pengumuman') }}"
                 class="nav-item nav-link {{ Request::is('pengumuman') ? 'active' : '' }}">PENGUMUMAN</a>
-            <a href="/berita" class="nav-item nav-link {{ Request::is('berita') ? 'active' : '' }}">BERITA</a>
+            <a href="{{ url('/berita') }}" class="nav-item nav-link {{ Request::is('berita') ? 'active' : '' }}">BERITA</a>
         </div>
     </div>
 </nav>

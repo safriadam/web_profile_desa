@@ -20,7 +20,7 @@
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->category->name }}</td>
                         <td class="text-center">
-                            <a href="/dashboard/publikasi/{{ $post->slug }}" class="badge bg-info"><span
+                            <a href="{{ url('/dashboard/publikasi/'.$post->slug) }}" class="badge bg-info"><span
                                     data-feather="eye"></span></a>
                             <form action="/dashboard/publikasi/{{ $post->slug }}" method="POST" class="d-inline">
                                 @method('put')

@@ -3,14 +3,14 @@
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" aria-current="page"
-                    href="/dashboard">
+                    href="{{ url('/dashboard') }}">
                     <span data-feather="home" class="align-text-bottom"></span>
                     Dashboard
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('dashboard/informasi*') ? 'active' : '' }}"
-                    href="/dashboard/informasi">
+                    href="{{ url('/dashboard/informasi') }}">
                     <span data-feather="file-text" class="align-text-bottom"></span>
                     Informasi
                 </a>
@@ -24,21 +24,21 @@
             <ul class="nav flex-column">
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('dashboard/publikasi*') ? 'active' : '' }}"
-                        href="/dashboard/publikasi">
+                        href="{{ url('/dashboard/publikasi') }}">
                         <span data-feather="external-link" class="align-text-bottom"></span>
                         Publikasi
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('dashboard/kategori*') ? 'active' : '' }}"
-                        href="/dashboard/kategori">
+                        href="{{ url('/dashboard/kategori') }}">
                         <span data-feather="grid" class="align-text-bottom"></span>
                         Kategori
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('dashboard/pengguna*') ? 'active' : '' }}"
-                        href="/dashboard/pengguna">
+                        href="{{ url('/dashboard/pengguna') }}">
                         <span data-feather="users" class="align-text-bottom"></span>
                         Pengguna
                     </a>

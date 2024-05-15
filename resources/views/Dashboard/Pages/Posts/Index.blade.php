@@ -2,7 +2,7 @@
 @section('Pages')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">{{ $title }}</h1>
-        <a href="/dashboard/informasi/create" class="badge bg-success"><span data-feather="plus"></span></a>
+        <a href="{{ url('/dashboard/informasi/create')}}" class="badge bg-success"><span data-feather="plus"></span></a>
     </div>
     <div class="table-responsive col-12">
         <table class="table table-striped table-sm">
@@ -27,11 +27,11 @@
                             </div>
                         </td>
                         <td class="text-end">
-                            <a href="/dashboard/informasi/{{ $post->slug }}" class="badge bg-info"><span
+                            <a href="{{ url('/dashboard/informasi/'.$post->slug) }}" class="badge bg-info"><span
                                     data-feather="eye"></span></a>
-                            <a href="/dashboard/informasi/{{ $post->slug }}/edit" class="badge bg-warning"><span
+                            <a href="{{ url('/dashboard/informasi/'.$post->slug.'/edit') }}" class="badge bg-warning"><span
                                     data-feather="edit"></span></a>
-                            <form action="/dashboard/informasi/{{ $post->slug }}" method="POST" class="d-inline">
+                            <form action="{{ url('/dashboard/informasi/'.$post->slug) }}" method="POST" class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button class="badge bg-danger border-0"

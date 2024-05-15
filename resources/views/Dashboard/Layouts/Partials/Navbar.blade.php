@@ -8,7 +8,7 @@
         aria-label="Cari...">
     <div class="navbar-nav">
         <div class="nav-item text-nowrap">
-            <form method="POST" action="/dashboard/logout">
+            <form method="POST" action="{{ url('/dashboard/logout') }}">
                 @csrf
                 <button type="submit" class="nav-link px-3 bg-success border-0 text-white">Logout <span
                         data-feather="log-out"></span></button>

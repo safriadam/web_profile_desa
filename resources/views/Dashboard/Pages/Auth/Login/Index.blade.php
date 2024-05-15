@@ -66,7 +66,7 @@
 <body class="text-center">
     @include('sweetalert::alert')
     <main class="form-signin w-100 m-auto">
-        <form action="/login" method="POST">
+        <form action="{{url('/login')}}" method="POST">
             @csrf
             <img class="mb-4" src="{{ asset('favicon.png') }}" alt="" width="150" height="150">
             <h1 class="h3 mb-3 fw-normal">Login</h1>
@@ -88,7 +88,7 @@
             <button class="w-100 btn btn-lg btn-success mb-3" type="submit">Login</button>
             <a href="/" class="w-100 btn btn-lg btn-info">Home</a>
             <div class="mt-2">
-                Belum punya akun? <a href="/daftar">Daftar</a>
+                Belum punya akun? <a href="{{url('/daftar') }}">Daftar</a>
             </div>
             <p class="mt-5 mb-3 text-muted">&copy; 2022 | MI-MH Gogourung. All rights
                 reserved.</p>

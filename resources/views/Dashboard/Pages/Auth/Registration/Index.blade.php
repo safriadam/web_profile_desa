@@ -66,7 +66,7 @@
 <body class="text-center">
     @include('sweetalert::alert')
     <main class="form-signin w-100 m-auto">
-        <form action="/daftar" method="POST">
+        <form action="{{ url('/daftar') }}" method="POST">
             @csrf
             <img class="mb-4" src="{{ asset('favicon.png') }}" alt="" width="150" height="150">
             <h1 class="h3 mb-3 fw-normal">Pendaftaran</h1>

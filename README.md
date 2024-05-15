@@ -9,9 +9,10 @@ The requirements to Laravel-ContentManagementSystem application is:
 ### Git Clone
 
 ```
-$ git clone https://github.com/ambonxnobody/Laravel-ContentManagementSystem.git
-$ cd Laravel-ContentManagementSystem
+$ git clone https://github.com/safriadam/web_profile_desa.git
+$ cd web_profile_desa
 $ composer update
+$ php artisan key:generate
 ```
 
 ## Setup
@@ -57,7 +58,7 @@ php artisan migrate --seed
 ```
 
 ```
-Application name: Laravel-ContentManagementSystem
+Application name: Website Desa
 Homepage URL: URL (Same as APP_URL at .env)
 ```
 

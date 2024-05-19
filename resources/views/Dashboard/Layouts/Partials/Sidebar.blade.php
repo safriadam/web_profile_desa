@@ -43,6 +43,13 @@
                         Pengguna
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('/dashboard/slider*') ? 'active' : '' }}"
+                        href="{{ url('/dashboard/slider') }}">
+                        <span data-feather="image" class="align-text-bottom"></span>
+                        Gambar Slider
+                    </a>
+                </li>
             </ul>
         @endcan
 

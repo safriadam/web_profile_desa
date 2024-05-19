@@ -10,6 +10,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublishController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,6 +75,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('/dashboard/kategori', CategoryController::class)->except('show');
 
     Route::resource('/dashboard/pengguna', UserController::class)->only(['index', 'edit', 'update']);
+    
+    Route::resource('/dashboard/slider', SliderController::class)->only(['index', 'edit', 'update']);
 
     Route::resource('/dashboard/publikasi', PublishController::class)->only(['index', 'show', 'update']);
 });

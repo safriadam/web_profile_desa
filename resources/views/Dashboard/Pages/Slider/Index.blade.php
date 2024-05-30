@@ -2,7 +2,7 @@
 @section('Pages')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">{{ $title }}</h1>
-        <a href="/dashboard/kategori/create" class="badge bg-success"><span data-feather="plus"></span></a>
+        <a href="/dashboard/slider/create" class="badge bg-success"><span data-feather="plus"></span></a>
     </div>
     <div class="table-responsive col-12">
         <table class="table table-striped table-sm">
@@ -13,6 +13,13 @@
                     <th scope="col" class="text-center">Aksi</th>
                 </tr>
             </thead>
+            <tbody>
+                @foreach ($gambar as $item)
+                    <tr>
+                        <td><img src="{{url('assets/slider/'. $item->nama_gambar)}}" style="max-width: 30%"></td>
+                    </tr>
+                @endforeach
+            </tbody>
             {{-- <tbody>
                 @foreach ($categories as $post)
                     <tr>

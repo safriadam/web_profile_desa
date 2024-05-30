@@ -1,7 +1,7 @@
 @extends('Guest.Layouts.Index')
 @section('Pages')
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn"
-        style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ asset('assets/img/dhuha.jpg') }}) center center no-repeat; background-size: cover;"
+        style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ asset('assets/img/1716995082.jpg') }}) center center no-repeat; background-size: cover;"
         data-wow-delay="0.1s">
         <div class="container text-center py-5">
             <h1 class="display-4 text-white animated slideInDown mb-3">{{ $title }}</h1>
@@ -10,7 +10,7 @@
     <div class="container">
         <div class="card p-5">
             <h1 class="text-center">Visi</h1>
-            <h5>Unggul dalam Mutu: Indikatornya.</h5>
+            {{-- <h5>Unggul dalam Mutu: Indikatornya.</h5>
             <ol>
                 <li>Prestasi akademik mencapai rerata naik dari tahun 2021/2020.(NP)</li>
                 <li>Prestasi non akademik minimal B ( baik ).( NP)</li>
@@ -48,12 +48,12 @@
 
             <p class="mt-3"><strong>Keterangan:</strong></p>
             <p>NP = Nilai Prestasi ( kognitif )</p>
-            <p>NK = Nilai Karakter positif</p>
+            <p>NK = Nilai Karakter positif</p> --}}
         </div>
 
         <div class="card p-5 mt-5">
             <h1 class="text-center">Misi</h1>
-            <ol type="I">
+            {{-- <ol type="I">
                 <li class="fs-5 text-dark fw-bold">Standar Isi</li>
                 <ol>
                     <li>Menyusun kurikulum Madrasah yang relevan/sesuai dengan/mengikuti pekembangan dunia pendidikan dan
@@ -138,7 +138,7 @@
                     <li>Melaksanakan penilaian berbasis perilaku terhadap cinta lingkungan sekitar.</li>
                     <li>Melaksanakan penilaian berdasar bukti outentik</li>
                 </ol>
-            </ol>
+            </ol> --}}
 
         </div>
     </div>

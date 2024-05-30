@@ -11,6 +11,7 @@ use App\Http\Controllers\PublishController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SliderController;
+use App\Models\Gambar;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,10 +25,11 @@ use App\Http\Controllers\SliderController;
 */
 
 Route::get('/', function () {
+    $slider = Gambar::all();
     return view('Guest.Index', [
         'title' => 'Beranda',
         'posts' => Post::query()->where('is_published', true)->latest()->limit(10)->get(),
-    ]);
+    ], compact('slider'));
 });
 Route::get('/about', function () {
     return view('Guest.About', [
@@ -77,6 +79,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('/dashboard/pengguna', UserController::class)->only(['index', 'edit', 'update']);
     
     Route::resource('/dashboard/slider', SliderController::class)->only(['index', 'edit', 'update']);
+    Route::get('/dashboard/slider/create', [SliderController::class, 'create']);
+    Route::post('/dashboard/slider/upload', [SliderController::class, 'upload']);
 
     Route::resource('/dashboard/publikasi', PublishController::class)->only(['index', 'show', 'update']);
 });

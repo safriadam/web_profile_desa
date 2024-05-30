@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pendaftaran - Admin MI-MH Gogourung</title>
+    <title>Pendaftaran</title>
     <link rel="shortcut icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <style>
@@ -122,8 +122,7 @@
             <button class="w-100 btn btn-lg btn-success mb-3" type="submit">Daftar</button>
 
             <a href="/" class="w-100 btn btn-lg btn-info">Home</a>
-            <p class="mt-5 mb-3 text-muted">&copy; 2022 | MI-MH Gogourung. All rights
-                reserved.</p>
+            <p class="mt-5 mb-3 text-muted">&copy; 2024 Kecamatan Galing</p>
         </form>
     </main>
 </body>

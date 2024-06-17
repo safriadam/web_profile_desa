@@ -46,6 +46,7 @@ Route::get('/prestasi-sekolah', [GuestController::class, 'index']);
 Route::get('/kegiatan', [GuestController::class, 'index1']);
 Route::get('/pengumuman', [GuestController::class, 'index2']);
 Route::get('/berita', [GuestController::class, 'index3']);
+Route::get('/sambutan', [GuestController::class, 'index4']);
 
 Route::get('/informasi/{post:slug}', [GuestController::class, 'show']);
 

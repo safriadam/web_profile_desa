@@ -73,9 +73,9 @@
     <div class="container-fluid">
         <a href="/" class="navbar-brand m-0 p-0">
             <div class="d-flex align-items-center">
-                {{-- <img src="{{ asset('favicon48x48.png') }}" alt="Logo" width="50" height="50"> --}}
+                <img src="{{ asset('favicon48x48.png') }}" alt="Logo" width="50" height="50">
                 <span>
-                    <h1 class="fw-bold text-light m-0 d-inline-block ms-3">Kecamatan Galing</h1>
+                    <h3 class="fw-bold text-light m-0 d-inline-block ms-3">KECAMATAN GALING</h3>
                 </span>
             </div>
         </a>
@@ -91,6 +91,7 @@
                     <a href="#" class="nav-link dropdown-toggle {{ Request::is('about', 'structure') ? 'active' : '' }}" data-bs-toggle="dropdown">PROFIL</a>
                     <ul class="dropdown-menu border-0 rounded-0 rounded-bottom m-0">
                         <li><a href="{{ url('/about') }}" class="dropdown-item">TENTANG KAMI</a></li>
+                        <li><a href="{{ url('/sambutan') }}" class="dropdown-item">SAMBUTAN CAMAT</a></li>
                         <li><a href="{{ url('/structure') }}" class="dropdown-item">STRUKTUR ORGANISASI</a></li>
                     </ul>
                 </li>

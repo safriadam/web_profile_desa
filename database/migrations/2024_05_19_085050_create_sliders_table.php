@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('sliders', function (Blueprint $table) {
+            $table->id();
             $table->string('gambar');
             $table->string('keterangan');
             $table->timestamps();

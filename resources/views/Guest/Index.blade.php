@@ -6,19 +6,19 @@
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="0" class="active" aria-current="true"
                     aria-label="Slide 1">
-                    <img class="img-fluid" src="{{ asset('assets/img/gedung.jpg') }}" alt="Image">
+                    <img class="img-fluid" src="{{ asset('assets/img/gedung.jpeg') }}" alt="Image">
                 </button>
                 @foreach ($slider as $item)
                     <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="{{$loop->iteration}}" aria-current="true"
                         aria-label="Slide 2">
-                        <img class="img-fluid" src="{{ asset('assets/img/'. $item->nama_gambar) }}" alt="Image">
+                        <img class="img-fluid" src="{{ asset('assets/slider/'. $item->nama_gambar) }}" alt="Image">
                     </button>
                 @endforeach
 
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="card-img" src="{{ asset('assets/img/gedung.jpg') }}" alt="Image">
+                    <img class="card-img" src="{{ asset('assets/img/gedung.jpeg') }}" alt="Image">
                     <div class="carousel-caption">
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-4 animated zoomIn">Selamat Datang di Website</h4>
@@ -73,7 +73,7 @@
                     <div class="fact-item bg-light rounded text-center h-100 p-5">
                         <i class="fa fa-users fa-4x text-primary mb-4"></i>
                         <h5 class="mb-3">Jumlah Penduduk</h5>
-                        <h1 class="display-5 mb-0" data-toggle="counter-up">2172</h1>
+                        <h1 class="display-5 mb-0" data-toggle="counter-up">26002</h1>
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="img-border">
-                        <img class="img-fluid" src="{{ asset('assets/img/gurus.jpg') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('assets/img/gurus.jpeg') }}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -99,10 +99,10 @@
                         <p>Misi : </p>
                         <p class="mb-4">....................</p>
                         <div class="d-flex align-items-center mb-4 pb-2">
-                            <img class="flex-shrink-0 rounded-circle" src="{{ asset('assets/img/kepalaportrait.jpg') }}"
+                            <img class="flex-shrink-0 rounded-circle" src="{{ asset('assets/img/kepalaportrait.jpeg') }}"
                                 alt="" style="width: 50px; height: 50px;">
                             <div class="ps-4">
-                                <h6>(NAMA CAMAT)</h6>
+                                <h6>SURIAWAN, S.ST., MT.</h6>
                                 <small>Camat Galing</small>
                             </div>
                         </div>

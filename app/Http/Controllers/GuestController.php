@@ -27,7 +27,8 @@ class GuestController extends Controller
     }
     public function index2()
     {
-        // return Post::query()->where('category_id', '=', 4)->where('is_published', true)->latest()->paginate(7);
+        // $post = Post::query()->where('category_id', '=', 4)->where('is_published', true)->latest()->paginate(7);
+        // return $post[0]->image;
         return view('Guest.Posts', [
             'title' => 'Semua Pengumuman',
             "posts" => Post::query()->where('category_id', '=', 4)->where('is_published', true)->latest()->paginate(7)

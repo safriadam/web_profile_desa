@@ -17,6 +17,7 @@
         <p>CAMAT GALING</p>
         <hr>
         <h3>SAMBUTAN CAMAT GALING</h3>
+        <br>
         <p>Puji dan syukur dipanjatkan kehadirat Allah Subhanahuwa Ta’ala karena berkat limpahan rahmat-Nya jualah sehingga
             kita masih diberikan umur yang panjang lagi berkah</p>
         <p>Kecamatan Galing merupakan salah satu dari 19 kecamatan di Kabupaten Sambas yang merupakan penyangga (hynterland)

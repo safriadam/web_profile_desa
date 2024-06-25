@@ -9,6 +9,8 @@
             <div class="mb-3">
                 <label for="name" class="form-label">Pilih Gambar</label>
                 <input type="file" class="form-control @error('name') is-invalid @enderror" id="name" name="image" required>
+                <label for="ket" class="form-label">Keterangan</label>
+                <input type="text" class="form-control @error('name') is-invalid @enderror" id="ket" name="keterangan" required>
                 {{-- @error('name')
                     <div class="invalid-feedback">
                         {{ $message }}

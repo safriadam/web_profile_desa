@@ -16,7 +16,8 @@
             <tbody>
                 @foreach ($gambar as $item)
                     <tr>
-                        <td><img src="{{url('assets/slider/'. $item->nama_gambar)}}" style="width: 30%"></td>
+                        <td><img src="{{url('assets/slider/'. $item->nama_gambar)}}" style="max-width: 30%"></td>
+                        <td>{{$item->keterangan}}</td>
                     </tr>
                 @endforeach
             </tbody>

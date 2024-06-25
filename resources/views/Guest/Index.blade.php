@@ -9,9 +9,9 @@
                     <img class="img-fluid" src="{{ asset('assets/img/gedung.jpeg') }}" alt="Image">
                 </button>
                 @foreach ($slider as $item)
-                    <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="{{$loop->iteration}}" aria-current="true"
-                        aria-label="Slide 2">
-                        <img class="img-fluid" src="{{ asset('assets/slider/'. $item->nama_gambar) }}" alt="Image">
+                    <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="{{ $loop->iteration }}"
+                        aria-current="true" aria-label="Slide 2">
+                        <img class="img-fluid" src="{{ asset('assets/slider/' . $item->nama_gambar) }}" alt="Image">
                     </button>
                 @endforeach
 
@@ -27,17 +27,18 @@
                         </div>
                     </div>
                 </div>
-                @foreach ($slider as $item)
-                    <div class="carousel-item">
-                        <img class="card-img" src="{{ asset('assets/slider/' . $item->nama_gambar) }}" alt="Image">
-                        <div class="carousel-caption">
-                        <div class="p-3" style="max-width: 900px;">
-                            <h4 class="text-white text-uppercase mb-4 animated zoomIn">Ini</h4>
-                            <h1 class="display-1 text-white mb-0 animated zoomIn">Judul</h1>
+                @if ($slider)
+                    @foreach ($slider as $item)
+                        <div class="carousel-item">
+                            <img class="card-img" src="{{ asset('assets/slider/' . $item->nama_gambar) }}" alt="Image">
+                            <div class="carousel-caption">
+                                <div class="p-3" style="max-width: 900px;">
+                                    <h4 class="text-white text-uppercase mb-4 animated zoomIn">{{ $item->keterangan }}</h4>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                @endif
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -93,11 +94,18 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="h-100">
                         <h6 class="section-title bg-white text-start text-success pe-3">Tentang Kita</h6>
-                        <h1 class="display-6 mb-4">Visi <span class="text-success">Misi</span> beserta Tujuan Kecamatan Galing</h1>
+                        <h1 class="display-6 mb-4">Visi <span class="text-success">Misi</span> beserta Tujuan Kecamatan
+                            Galing</h1>
                         <p>Visi : </p>
-                        <p>"INI VISI KECAMATAN GALING"</p>
+                        <p>"{{ $visi->value ?? '' }}"</p>
                         <p>Misi : </p>
-                        <p class="mb-4">....................</p>
+                        @if (!$misi->isEmpty())
+                            <ol>
+                                @foreach ($misi as $item)
+                                    <li>{{ $item->value }}</li>
+                                @endforeach
+                            </ol>
+                        @endif
                         <div class="d-flex align-items-center mb-4 pb-2">
                             <img class="flex-shrink-0 rounded-circle" src="{{ asset('assets/img/kepalaportrait.jpeg') }}"
                                 alt="" style="width: 50px; height: 50px;">

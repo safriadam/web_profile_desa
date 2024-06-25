@@ -22,23 +22,22 @@ class GuestController extends Controller
     {
         return view('Guest.Posts', [
             'title' => 'Semua Kegiatan',
-            "posts" => Post::query()->where('category_id', '=', 3)->where('is_published', true)->latest()->paginate(7)
+            "posts" => Post::query()->where('category_id', '=', 2)->where('is_published', true)->latest()->paginate(7)
         ]);
     }
     public function index2()
     {
-        // $post = Post::query()->where('category_id', '=', 4)->where('is_published', true)->latest()->paginate(7);
-        // return $post[0]->image;
+        
         return view('Guest.Posts', [
             'title' => 'Semua Pengumuman',
-            "posts" => Post::query()->where('category_id', '=', 4)->where('is_published', true)->latest()->paginate(7)
+            "posts" => Post::query()->where('category_id', '=', 3)->where('is_published', true)->latest()->paginate(7)
         ]);
     }
     public function index3()
     {
         return view('Guest.Posts', [
             'title' => 'Semua Berita',
-            "posts" => Post::query()->where('category_id', '=', 2)->where('is_published', true)->latest()->paginate(7)
+            "posts" => Post::query()->where('category_id', '=', 1)->where('is_published', true)->latest()->paginate(7)
         ]);
     }
     public function index4(){

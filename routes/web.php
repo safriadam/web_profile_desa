@@ -11,7 +11,9 @@ use App\Http\Controllers\PublishController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\VisiController;
 use App\Models\Gambar;
+use App\Models\Visi;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,14 +28,23 @@ use App\Models\Gambar;
 
 Route::get('/', function () {
     $slider = Gambar::all();
+    $visi = Visi::where('kategori', 'visi')->first();
+    $misi = Visi::where('kategori', 'misi')->get();
     return view('Guest.Index', [
         'title' => 'Beranda',
         'posts' => Post::query()->where('is_published', true)->latest()->limit(10)->get(),
+        'visi' => $visi ?? '',
+        'misi' => $misi ?? '',
     ], compact('slider'));
 });
 Route::get('/about', function () {
+    $visiMisi = Visi::all();
+    $visi = Visi::where('kategori', 'visi')->first();
+    $misi = Visi::where('kategori', 'misi')->get();
     return view('Guest.About', [
-        'title' => 'Tentang Kita'
+        'title' => 'Tentang Kita',
+        'visi' => $visi,
+        'misi' => $misi
     ]);
 });
 Route::get('/structure', function () {
@@ -42,7 +53,7 @@ Route::get('/structure', function () {
     ]);
 });
 
-Route::get('/prestasi-sekolah', [GuestController::class, 'index']);
+// Route::get('/prestasi-sekolah', [GuestController::class, 'index']);
 Route::get('/kegiatan', [GuestController::class, 'index1']);
 Route::get('/pengumuman', [GuestController::class, 'index2']);
 Route::get('/berita', [GuestController::class, 'index3']);
@@ -82,6 +93,13 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('/dashboard/slider', SliderController::class)->only(['index', 'edit', 'update']);
     Route::get('/dashboard/slider/create', [SliderController::class, 'create']);
     Route::post('/dashboard/slider/upload', [SliderController::class, 'upload']);
+
+    Route::get('/dashboard/visiMisi', [VisiController::class, 'show']);
+    Route::get('/dashboard/deleteVisi', [VisiController::class, 'deleteVisi']);
+    Route::get('/dashboard/deleteMisi/{id}', [VisiController::class, 'deleteMisi']);
+    Route::post('/dashboard/updateVisi', [VisiController::class, 'updateVisi']);
+    Route::post('/dashboard/updateMisi/{id}', [VisiController::class, 'updateMisi']);
+    Route::post('/dashboard/addMisi', [VisiController::class, 'addMisi']);
 
     Route::resource('/dashboard/publikasi', PublishController::class)->only(['index', 'show', 'update']);
 });

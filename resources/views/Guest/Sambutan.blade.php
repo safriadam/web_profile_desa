@@ -18,14 +18,14 @@
         <hr>
         <h3>SAMBUTAN CAMAT GALING</h3>
         <br>
-        <p>Puji dan syukur dipanjatkan kehadirat Allah Subhanahuwa Ta’ala karena berkat limpahan rahmat-Nya jualah sehingga
+        <p style="align-content: stretch;" >Puji dan syukur dipanjatkan kehadirat Allah Subhanahuwa Ta’ala karena berkat limpahan rahmat-Nya jualah sehingga
             kita masih diberikan umur yang panjang lagi berkah</p>
-        <p>Kecamatan Galing merupakan salah satu dari 19 kecamatan di Kabupaten Sambas yang merupakan penyangga (hynterland)
+        <p style="align-content: stretch;">Kecamatan Galing merupakan salah satu dari 19 kecamatan di Kabupaten Sambas yang merupakan penyangga (hynterland)
             daerah perbatan beik Paloh maupun Sajingan. Jumlah desa di Kecamatan Galing sebanyak 10 desa yakni, Desa Tri
             Kembang, Desa Ratu Sepudak, Desa Galing, Desa Sungai Palah, Desa Sijang, Desa Tri Gadu, Desa Tempapan Kuala,
             Desa Tempapan Hulu, Desa Teluk Pandan dan Desa Sagu. Di Kecamatan Galing terdapat 23 dusun dengan potensi yang
             ada terdiri dari pertanian, perkebunan dan perdagangan.</p>
-        <p>Jumlah penduduk Kecamatan Galing berdasarkan Laporan dari Dinas Catatan Sipil Kabupaten Sambas Bulan Desember
+        <p style="align-content: stretch;">Jumlah penduduk Kecamatan Galing berdasarkan Laporan dari Dinas Catatan Sipil Kabupaten Sambas Bulan Desember
             2023 berjumlah 26.002 orang dengan mayoritas beragama islam. Mata pencaharian penduduk sebagian besar merupakan
             petani dengan usaha perkebunan dan pertanian yang dominan berupa kelapa sawit, karet, padi. Sedangkan
             buah-buahan yang dominan berupa semangka.</p>

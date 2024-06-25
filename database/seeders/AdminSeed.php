@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Visi;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -16,12 +17,15 @@ class AdminSeed extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'password'=>Hash::make('asbi2408'),
-            'name' => 'Asbu',
-            'username' => 'asbi',
-            'email' => 'admin@email.com',
-            'is_admin' => true,
+        Visi::insert([
+            [
+                'kategori' => 'visi',
+                'value' => 'Ini adalah visi kecamatan galing'
+            ],
+            [
+                'kategori' => 'misi',
+                'value' => 'Ini adalah misi kecamatan galing'
+            ],
         ]);
     }
 }

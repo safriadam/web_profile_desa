@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,17 +18,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->create([
-            'name' => 'Admin',
-            'username' => 'admin',
-            'email' => 'admin@mimhgogourung.sch.id',
+        User::create([
+            'name' => 'asbi',
+            'username' => 'asbi',
+            'email' => 'asbi@test.com',
+            'password' => Hash::make('asbi'),
             'is_admin' => true,
         ]);
 
-        Category::create([
-            'name' => 'Prestasi Sekolah',
-            'slug' => 'prestasi-sekolah'
-        ]);
         Category::create([
             'name' => 'Berita',
             'slug' => 'berita'

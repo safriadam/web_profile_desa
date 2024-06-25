@@ -21,9 +21,7 @@ class SliderController extends Controller
         ]);
     }
     public function upload(Request $request){
-        // $request->validate([
-        //     'image' => 'required|mimes:jpg'
-        // ]);
+        
         
         $file = $request->file('image');
         $namafile = time().'.'.$file->getClientOriginalExtension();
@@ -32,9 +30,11 @@ class SliderController extends Controller
         
         $gambar = new Gambar();
         $gambar->nama_gambar = $namafile;
+        $gambar->keterangan = $request->keterangan;
+        
         $gambar->save();
 
-        return redirect()->back()
+        return redirect('dashboard/slider')
             ->with('success','Gambar berhasil diunggah.')
             ->with('image',$namafile);
 

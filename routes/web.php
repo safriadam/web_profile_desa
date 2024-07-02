@@ -93,6 +93,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('/dashboard/slider', SliderController::class)->only(['index', 'edit', 'update']);
     Route::get('/dashboard/slider/create', [SliderController::class, 'create']);
     Route::post('/dashboard/slider/upload', [SliderController::class, 'upload']);
+    Route::get('/dashboard/slider/update/{id}', [SliderController::class, 'update']);
+    Route::post('/dashboard/slider/update', [SliderController::class, 'uploadUpdate']);
+    Route::get('/dashboard/slider/delete/{id}', [SliderController::class, 'delete']);
 
     Route::get('/dashboard/visiMisi', [VisiController::class, 'show']);
     Route::get('/dashboard/deleteVisi', [VisiController::class, 'deleteVisi']);

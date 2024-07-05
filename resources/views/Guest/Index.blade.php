@@ -4,38 +4,41 @@
     <div class="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1">
-                    <img class="img-fluid" src="{{ asset('assets/img/gedung.jpg') }}" alt="Image">
+                <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="0" class="active" aria-current="true"
+                    aria-label="Slide 1">
+                    <img class="img-fluid" src="{{ asset('assets/img/gedung.jpeg') }}" alt="Image">
                 </button>
-                <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="1" aria-current="true"
-                    aria-label="Slide 2">
-                    <img class="img-fluid" src="{{ asset('assets/img/dhuha.jpg') }}" alt="Image">
-                </button>
+                @foreach ($slider as $item)
+                    <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="{{ $loop->iteration }}"
+                        aria-current="true" aria-label="Slide 2">
+                        <img class="img-fluid" src="{{ asset('assets/slider/' . $item->nama_gambar) }}" alt="Image">
+                    </button>
+                @endforeach
+
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="card-img" src="{{ asset('assets/img/gedung.jpg') }}" alt="Image">
+                    <img class="card-img" src="{{ asset('assets/img/gedung.jpeg') }}" alt="Image">
                     <div class="carousel-caption">
                         <div class="p-3" style="max-width: 900px;">
-                            <h4 class="text-white text-uppercase mb-4 animated zoomIn">Selamat Datang di Website MI-MH
-                                Gogourung</h4>
-                            <h1 class="display-1 text-white mb-0 animated zoomIn">MI-MH Gogourung
+                            <h4 class="text-white text-uppercase mb-4 animated zoomIn">Selamat Datang di Website</h4>
+                            <h1 class="display-1 text-white mb-0 animated zoomIn">KECAMATAN GALING
                             </h1>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img class="card-img" src="{{ asset('assets/img/dhuha.jpg') }}" alt="Image">
-                    <div class="carousel-caption">
-                        <div class="p-3" style="max-width: 900px;">
-                            <h4 class="text-white text-uppercase mb-4 animated zoomIn">Sekolah Islami dengan Mata Pelajaran
-                                dan Kegiatannya</h4>
-                            <h1 class="display-1 text-white mb-0 animated zoomIn">Islamic School
-                            </h1>
+                @if ($slider)
+                    @foreach ($slider as $item)
+                        <div class="carousel-item">
+                            <img class="card-img" src="{{ asset('assets/slider/' . $item->nama_gambar) }}" alt="Image">
+                            <div class="carousel-caption">
+                                <div class="p-3" style="max-width: 900px;">
+                                    <h4 class="text-white text-uppercase mb-4 animated zoomIn">{{ $item->keterangan }}</h4>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -55,23 +58,23 @@
             <div class="row g-4 d-flex justify-content-center">
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="fact-item bg-light rounded text-center h-100 p-5">
-                        <i class="fa fa-certificate fa-4x text-success mb-4"></i>
+                        <i class="fa fa-certificate fa-4x text-primary mb-4"></i>
                         <h5 class="mb-3">Sejak Tahun</h5>
                         <h1 class="display-5 mb-0" data-toggle="counter-up">1953</h1>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="fact-item bg-light rounded text-center h-100 p-5">
-                        <i class="fa fa-users-cog fa-4x text-success mb-4"></i>
-                        <h5 class="mb-3">Tenaga Pendidikan</h5>
-                        <h1 class="display-5 mb-0" data-toggle="counter-up">18</h1>
+                        <i class="fa fa-users-cog fa-4x text-primary mb-4"></i>
+                        <h5 class="mb-3">Jumlah Desa</h5>
+                        <h1 class="display-5 mb-0" data-toggle="counter-up">9</h1>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="fact-item bg-light rounded text-center h-100 p-5">
-                        <i class="fa fa-users fa-4x text-success mb-4"></i>
-                        <h5 class="mb-3">Jumlah Siswa</h5>
-                        <h1 class="display-5 mb-0" data-toggle="counter-up">366</h1>
+                        <i class="fa fa-users fa-4x text-primary mb-4"></i>
+                        <h5 class="mb-3">Jumlah Penduduk</h5>
+                        <h1 class="display-5 mb-0" data-toggle="counter-up">26002</h1>
                     </div>
                 </div>
             </div>
@@ -91,22 +94,27 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="h-100">
                         <h6 class="section-title bg-white text-start text-success pe-3">Tentang Kita</h6>
-                        <h1 class="display-6 mb-4">Visi <span class="text-success">Misi</span> beserta Tujuan MI-MH
-                            Gogourung</h1>
+                        <h1 class="display-6 mb-4">Visi <span class="text-success">Misi</span> beserta Tujuan Kecamatan
+                            Galing</h1>
                         <p>Visi : </p>
-                        <p>"UNGGUL DALAM MUTU, TIDAK GAGAP TEHNOLOGI, TRAMPIL, BERBUDAYA LINGKUNGAN, BERDASAR PADA IMAN DAN
-                            TAQWA SERTA BERAZAS AHLUSHUNAH WAL JAMAAH"</p>
+                        <p>"{{ $visi->value ?? '' }}"</p>
                         <p>Misi : </p>
-                        <p class="mb-4">....................</p>
+                        @if (!$misi->isEmpty())
+                            <ol>
+                                @foreach ($misi as $item)
+                                    <li>{{ $item->value }}</li>
+                                @endforeach
+                            </ol>
+                        @endif
                         <div class="d-flex align-items-center mb-4 pb-2">
                             <img class="flex-shrink-0 rounded-circle" src="{{ asset('assets/img/kepalaportrait.jpeg') }}"
                                 alt="" style="width: 50px; height: 50px;">
                             <div class="ps-4">
-                                <h6>Khoirunaniswah, S. Ag.</h6>
-                                <small>Kepala Sekolah</small>
+                                <h6>SURIAWAN, S.ST., MT.</h6>
+                                <small>Camat Galing</small>
                             </div>
                         </div>
-                        <a class="btn btn-success rounded-pill py-3 px-5" href="/about">Baca Selengkapnya</a>
+                        <a class="btn btn-primary rounded-pill py-3 px-5" href="/about">Baca Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -119,7 +127,7 @@
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h6 class="section-title bg-white text-center text-success px-3">Kegiatan Kami</h6>
-                <h1 class="display-6 mb-4">Kegiatan-Kegiatan di MI-MH Gogourung</h1>
+                <h1 class="display-6 mb-4">Kegiatan-Kegiatan di Kecamatan Galing</h1>
             </div>
             <div class="owl-carousel project-carousel wow fadeInUp" data-wow-delay="0.1s">
                 @foreach ($posts as $post)

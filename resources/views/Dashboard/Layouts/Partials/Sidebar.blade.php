@@ -43,6 +43,20 @@
                         Pengguna
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('/dashboard/slider*') ? 'active' : '' }}"
+                        href="{{ url('/dashboard/slider') }}">
+                        <span data-feather="image" class="align-text-bottom"></span>
+                        Gambar Slider
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('/dashboard/visiMisi*') ? 'active' : '' }}"
+                        href="{{ url('/dashboard/visiMisi') }}">
+                        <span data-feather="target" class="align-text-bottom"></span>
+                        Visi & Misi
+                    </a>
+                </li>
             </ul>
         @endcan
 

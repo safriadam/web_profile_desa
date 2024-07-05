@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login - Admin MI-MH Gogourung</title>
+    <title>Login</title>
     <link rel="shortcut icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <style>
@@ -90,8 +90,7 @@
             <div class="mt-2">
                 Belum punya akun? <a href="{{url('/daftar') }}">Daftar</a>
             </div>
-            <p class="mt-5 mb-3 text-muted">&copy; 2022 | MI-MH Gogourung. All rights
-                reserved.</p>
+            <p class="mt-5 mb-3 text-muted">&copy; 2024 Kecamatan Galing</p>
         </form>
     </main>
 </body>

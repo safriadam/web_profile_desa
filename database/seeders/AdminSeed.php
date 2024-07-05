@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Homepage;
 use App\Models\Visi;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -17,14 +18,38 @@ class AdminSeed extends Seeder
      */
     public function run()
     {
-        Visi::insert([
+        Homepage::insert([
             [
                 'kategori' => 'visi',
-                'value' => 'Ini adalah visi kecamatan galing'
+                'value' => 'Visi'
             ],
             [
                 'kategori' => 'misi',
-                'value' => 'Ini adalah misi kecamatan galing'
+                'value' => 'Misi'
+            ],
+            [
+                'kategori' => 'sejakTahun',
+                'value' => '2024'
+            ],
+            [
+                'kategori' => 'jmlDesa',
+                'value' => '10'
+            ],
+            [
+                'kategori' => 'jmlPenduduk',
+                'value' => '10000'
+            ],
+            [
+                'kategori' => 'jajaran',
+                'value' => 'jajaran.jpg'
+            ],
+            [
+                'kategori' => 'leader',
+                'value' => 'kepala.jpg'
+            ],
+            [
+                'kategori' => 'namaCamat',
+                'value' => 'Suriawan, S.ST., M.T.'
             ],
         ]);
     }

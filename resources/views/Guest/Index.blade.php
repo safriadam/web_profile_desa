@@ -60,21 +60,21 @@
                     <div class="fact-item bg-light rounded text-center h-100 p-5">
                         <i class="fa fa-certificate fa-4x text-primary mb-4"></i>
                         <h5 class="mb-3">Sejak Tahun</h5>
-                        <h1 class="display-5 mb-0" data-toggle="counter-up">1953</h1>
+                        <h1 class="display-5 mb-0" data-toggle="counter-up">{{$tahun}}</h1>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="fact-item bg-light rounded text-center h-100 p-5">
                         <i class="fa fa-users-cog fa-4x text-primary mb-4"></i>
                         <h5 class="mb-3">Jumlah Desa</h5>
-                        <h1 class="display-5 mb-0" data-toggle="counter-up">9</h1>
+                        <h1 class="display-5 mb-0" data-toggle="counter-up">{{$desa}}</h1>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="fact-item bg-light rounded text-center h-100 p-5">
                         <i class="fa fa-users fa-4x text-primary mb-4"></i>
                         <h5 class="mb-3">Jumlah Penduduk</h5>
-                        <h1 class="display-5 mb-0" data-toggle="counter-up">26002</h1>
+                        <h1 class="display-5 mb-0" data-toggle="counter-up">{{$penduduk}}</h1>
                     </div>
                 </div>
             </div>
@@ -88,12 +88,12 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="img-border">
-                        <img class="img-fluid" src="{{ asset('assets/img/gurus.jpeg') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('assets/homepage/'.$fotoPengurus) }}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="h-100">
-                        <h6 class="section-title bg-white text-start text-success pe-3">Tentang Kita</h6>
+                        <h6 class="section-title bg-white text-start text-success pe-3">Tentang Kami</h6>
                         <h1 class="display-6 mb-4">Visi <span class="text-success">Misi</span> beserta Tujuan Kecamatan
                             Galing</h1>
                         <p>Visi : </p>
@@ -107,10 +107,10 @@
                             </ol>
                         @endif
                         <div class="d-flex align-items-center mb-4 pb-2">
-                            <img class="flex-shrink-0 rounded-circle" src="{{ asset('assets/img/kepalaportrait.jpeg') }}"
+                            <img class="flex-shrink-0 rounded-circle" src="{{ asset('assets/homepage/'. $fotoCamat) }}"
                                 alt="" style="width: 50px; height: 50px;">
                             <div class="ps-4">
-                                <h6>SURIAWAN, S.ST., MT.</h6>
+                                <h6>{{$camat}}</h6>
                                 <small>Camat Galing</small>
                             </div>
                         </div>

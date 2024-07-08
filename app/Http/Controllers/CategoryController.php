@@ -11,6 +11,10 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
     public function checkSlug(Request $request)
     {
         $slug = SlugService::createSlug(Category::class, 'slug', $request->name);

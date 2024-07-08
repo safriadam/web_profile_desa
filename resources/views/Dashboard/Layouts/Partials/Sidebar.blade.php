@@ -57,6 +57,13 @@
                         Homepage
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('dashboard/maps*') ? 'active' : '' }}"
+                        href="{{ url('/dashboard/maps') }}">
+                        <span data-feather="map" class="align-text-bottom"></span>
+                        Maps
+                    </a>
+                </li>
             </ul>
         @endcan
 

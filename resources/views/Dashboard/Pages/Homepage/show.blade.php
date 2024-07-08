@@ -159,7 +159,7 @@
             <div class="mb-2">
                 <label for="tahun" class="form-label">Foto Camat <span><i>(Gambar Persegi)</i></span></label>
                 <div class="d-flex mb-2">
-                    <img src="{{ asset('assets/homepage/' . $fotoCamat) }}" alt="Foto Camat" class="w-25">
+                    <img src="{{ asset('assets/homepage/' . $fotoCamat) ?? 'camat.JPG'}}" alt="Foto Camat" class="w-25">
                     <button class="btn btn-primary mx-2 align-self-center" data-bs-toggle="modal"
                         data-bs-target="#fotoCamat">
                         <span data-feather="edit"></span>
@@ -169,7 +169,7 @@
             <div class="mb-2">
                 <label for="tahun" class="form-label">Foto Pengurus <span><i>(Gambar Landscape)</i></span></label>
                 <div class="d-flex mb-2">
-                    <img src="{{ asset('assets/homepage/' . $fotoPengurus) }}" alt="Foto Camat" class="w-50">
+                    <img src="{{ asset('assets/homepage/' . $fotoPengurus) ?? 'pengurus.jpeg' }}" alt="Foto Camat" class="w-50">
                     <button class="btn btn-primary mx-2 align-self-center" data-bs-toggle="modal"
                         data-bs-target="#fotoPengurus">
                         <span data-feather="edit"></span>
@@ -260,6 +260,8 @@
                 <span data-feather="plus-circle"></span> Tambah Misi
             </button>
         </div>
+        <hr>
+        <div class="bg-primary"></div>
         <input hidden type="text" class="form-control" id="slug" name="slug" required
             value="{{ old('slug') }}">
     </div>

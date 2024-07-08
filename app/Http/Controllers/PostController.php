@@ -12,6 +12,10 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
     public function checkSlug(Request $request)
     {
         $slug = SlugService::createSlug(Post::class, 'slug', $request->title);

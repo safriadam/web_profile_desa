@@ -28,6 +28,16 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <style>
+        body {
+        background-size: 110%;
+            /* background-attachment: fixed; */
+        background-position: center;
+        background-repeat: repeat;
+        /* background-image:url({{ url('assets/bg.jpeg') }}); */
+        background-image: url({{ url('assets/homepage/bg.jpg') }});
+        }
+    </style>
 </head>
 
 <body>

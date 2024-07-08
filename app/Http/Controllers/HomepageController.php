@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gambar;
 use App\Models\Homepage;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class HomepageController extends Controller
 {
-    function create(Request $request){
-        
-    }
+    
+    
     function show(){
+        $maps = $this->maps;
+        // return $maps;
         $fotoCamat = Homepage::where('kategori', 'leader')->first();
         $fotoPengurus = Homepage::where('kategori', 'jajaran')->first();
         $tahun = Homepage::where('kategori', 'sejakTahun')->first();
@@ -21,6 +24,7 @@ class HomepageController extends Controller
         $misi = Homepage::where('kategori', 'misi')->get();
         return view('Dashboard.Pages.Homepage.show', [
             'title' => 'Halaman Utama',
+            'maps' => $maps,
             'visi' => $visi->value ?? '',
             'misi' => $misi ?? '',
             'tahun' => $tahun->value ?? '',

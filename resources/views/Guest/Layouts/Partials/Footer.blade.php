@@ -33,8 +33,7 @@
             </div>
             <div class="col-md-3">
                 <h5 class="text-light mb-4">Quick Links</h5>
-                <a class="btn btn-link" href="/about">Tentang Kita</a>
-                <a class="btn btn-link" href="/about">Visi Misi</a>
+                <a class="btn btn-link" href="/about">Tentang Kami</a>
                 <a class="btn btn-link" href="/structure">Struktur Organisasi</a>
             </div>
         </div>

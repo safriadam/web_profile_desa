@@ -95,6 +95,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/dashboard/updateFotoPengurus', [HomepageController::class, 'updateFotoPengurus']);
     Route::post('/dashboard/updateMisi/{id}', [HomepageController::class, 'updateMisi']);
     Route::post('/dashboard/updateSambutan', [HomepageController::class, 'updateSambutan']);
+    Route::post('/dashboard/updateStruktur', [HomepageController::class, 'updateStruktur']);
     Route::post('/dashboard/updateNIPCamat', [HomepageController::class, 'updateNIP']);
     Route::post('/dashboard/addMisi', [HomepageController::class, 'addMisi']);
 

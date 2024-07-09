@@ -45,6 +45,10 @@ class AdminSeed extends Seeder
                 'value' => 'pengurus.jpeg'
             ],
             [
+                'kategori' => 'struktur',
+                'value' => 'struktur.jpg'
+            ],
+            [
                 'kategori' => 'leader',
                 'value' => 'camat.JPG'
             ],

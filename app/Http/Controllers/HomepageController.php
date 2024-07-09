@@ -10,10 +10,10 @@ use Illuminate\Http\Request;
 
 class HomepageController extends Controller
 {
-    
-    
     function show(){
         $sambutan = Homepage::where('kategori', 'sambutan')->first();
+        $struktur = Homepage::where('kategori', 'struktur')->first();
+        // return $struktur;
         $nip = Homepage::where('kategori', 'nip')->first();
         $fotoCamat = Homepage::where('kategori', 'leader')->first();
         $fotoPengurus = Homepage::where('kategori', 'jajaran')->first();
@@ -28,6 +28,7 @@ class HomepageController extends Controller
             'visi' => $visi->value ?? '',
             'nip' => $nip->value ?? '',
             'misi' => $misi ?? '',
+            'struktur' => $struktur->value ?? '',
             'tahun' => $tahun->value ?? '',
             'desa' => $desa->value ?? '',
             'penduduk' => $penduduk->value ?? '',
@@ -41,6 +42,16 @@ class HomepageController extends Controller
     function updateNIP(Request $request){
         Homepage::where('kategori','nip')->update([
             'value' => $request->nipCamat ?? '-'
+        ]);
+        return redirect()->back();
+    }
+    function updateStruktur(Request $request){
+        $file = $request->file('struktur');
+        $namafile = time().'.'.$file->getClientOriginalExtension();
+        // return $namafile;
+        $request->struktur->move(public_path('assets/img'), $namafile);
+        Homepage::where('kategori','struktur')->update([
+            'value' => $namafile
         ]);
         return redirect()->back();
     }

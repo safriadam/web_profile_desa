@@ -208,6 +208,16 @@
                 </div>
             </div>
         </div>
+        <div class="mb-2">
+            <label for="tahun" class="form-label">Struktur Organisasi</label>
+            <div class="d-flex mb-2">
+                <img src="{{ asset('assets/img/'. $struktur)}}" alt="Struktur Organisasi" class="w-75">
+                <button class="btn btn-primary mx-2 align-self-center" data-bs-toggle="modal"
+                    data-bs-target="#struktur">
+                    <span data-feather="edit"></span>
+                </button>
+            </div>
+        </div>
         <hr>
         {{-- AREA KERJA --}}
         <div class="mb-3">
@@ -285,6 +295,27 @@
         </div>
         <input hidden type="text" class="form-control" id="slug" name="slug" required
             value="{{ old('slug') }}">
+    </div>
+    <div class="modal fade" id="struktur" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title">Atur Struktur</h6>
+                    <button class="btn-close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/dashboard/updateStruktur" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <label for="camat" class="form-label">Struktur</label>
+                        <input type="file" class="form-control" name="struktur" value="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="modal fade" id="modalMisi" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">

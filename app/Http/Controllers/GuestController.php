@@ -60,10 +60,12 @@ class GuestController extends Controller
         ]);
     }
     public function structure(){
+        $struktur = Homepage::where('kategori','struktur')->first();
         return view('Guest.Structure', [
             'title' => 'Struktur Organisasi',
             'maps' => $this->maps,
             'alamat' => $this->alamat,
+            'struktur' => $struktur->value,
             'hp' => $this->hp,
             'email' => $this->email,
         ]);

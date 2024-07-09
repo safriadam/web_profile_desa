@@ -9,7 +9,7 @@
     </div>
     <div class="container mx-auto text-center">
         <h4 class="text-dark mb-3">Struktur Organisasi Kecamatan Galing</h4>
-        <img class="mt-2" src="{{ asset('assets/img/struktur.jpg') }}" alt="">
+        <img class="mt-2" src="{{ asset('assets/img/'. $struktur) }}" alt="">
         <hr>
         
         

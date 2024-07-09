@@ -8,16 +8,24 @@
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
-                    <th scope="col" class="text-center">Gambar</th>
-                    <th scope="col" class="text-center">Keterangan</th>
-                    <th scope="col" class="text-center">Aksi</th>
+                    <th scope="col">Gambar</th>
+                    <th scope="col">Keterangan</th>
+                    <th scope="col">Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($gambar as $item)
                     <tr>
-                        <td><img src="{{url('assets/slider/'. $item->nama_gambar)}}" style="max-width: 30%"></td>
+                        <td>
+                            <img src="{{url('assets/slider/'. $item->nama_gambar)}}" style="max-width: 250px; width: 100%;">
+                        </td>
                         <td>{{$item->keterangan}}</td>
+                        <td>
+                            <div class="d-flex">
+                                {{-- <a href="" class="btn btn-success"> <span data-feather="edit"></span></a> --}}
+                                <a href="slider/delete/{{$item->id}}" class="btn btn-danger mx-2"><span data-feather="trash-2"></span></a>
+                            </div>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

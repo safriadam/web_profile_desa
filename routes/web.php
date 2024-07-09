@@ -11,8 +11,9 @@ use App\Http\Controllers\PublishController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SliderController;
-use App\Http\Controllers\VisiController;
+use App\Http\Controllers\HomepageController;
 use App\Models\Gambar;
+use App\Models\Homepage;
 use App\Models\Visi;
 
 /*
@@ -27,22 +28,33 @@ use App\Models\Visi;
 */
 
 Route::get('/', function () {
+    $fotoCamat = Homepage::where('kategori', 'leader')->first();
+    $fotoPengurus = Homepage::where('kategori', 'jajaran')->first();
+    $tahun = Homepage::where('kategori', 'sejakTahun')->first();
+    $camat = Homepage::where('kategori', 'namaCamat')->first();
+    $desa = Homepage::where('kategori', 'jmlDesa')->first();
+    $penduduk = Homepage::where('kategori', 'jmlPenduduk')->first();
     $slider = Gambar::all();
-    $visi = Visi::where('kategori', 'visi')->first();
-    $misi = Visi::where('kategori', 'misi')->get();
+    $visi = Homepage::where('kategori', 'visi')->first();
+    $misi = Homepage::where('kategori', 'misi')->get();
     return view('Guest.Index', [
         'title' => 'Beranda',
         'posts' => Post::query()->where('is_published', true)->latest()->limit(10)->get(),
         'visi' => $visi ?? '',
         'misi' => $misi ?? '',
+        'tahun' => $tahun->value ?? '',
+        'desa' => $desa->value ?? '',
+        'penduduk' => $penduduk->value ?? '',
+        'camat' => $camat->value ?? '',
+        'fotoCamat' => $fotoCamat->value ?? '',
+        'fotoPengurus' => $fotoPengurus->value ?? '',
     ], compact('slider'));
 });
 Route::get('/about', function () {
-    $visiMisi = Visi::all();
-    $visi = Visi::where('kategori', 'visi')->first();
-    $misi = Visi::where('kategori', 'misi')->get();
+    $visi = Homepage::where('kategori', 'visi')->first();
+    $misi = Homepage::where('kategori', 'misi')->get();
     return view('Guest.About', [
-        'title' => 'Tentang Kita',
+        'title' => 'Tentang Kami',
         'visi' => $visi,
         'misi' => $misi
     ]);
@@ -89,17 +101,24 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('/dashboard/kategori', CategoryController::class)->except('show');
 
     Route::resource('/dashboard/pengguna', UserController::class)->only(['index', 'edit', 'update']);
-    
+
     Route::resource('/dashboard/slider', SliderController::class)->only(['index', 'edit', 'update']);
     Route::get('/dashboard/slider/create', [SliderController::class, 'create']);
     Route::post('/dashboard/slider/upload', [SliderController::class, 'upload']);
+    Route::get('/dashboard/slider/update/{id}', [SliderController::class, 'update']);
+    Route::post('/dashboard/slider/update', [SliderController::class, 'uploadUpdate']);
+    Route::get('/dashboard/slider/delete/{id}', [SliderController::class, 'delete']);
 
-    Route::get('/dashboard/visiMisi', [VisiController::class, 'show']);
-    Route::get('/dashboard/deleteVisi', [VisiController::class, 'deleteVisi']);
-    Route::get('/dashboard/deleteMisi/{id}', [VisiController::class, 'deleteMisi']);
-    Route::post('/dashboard/updateVisi', [VisiController::class, 'updateVisi']);
-    Route::post('/dashboard/updateMisi/{id}', [VisiController::class, 'updateMisi']);
-    Route::post('/dashboard/addMisi', [VisiController::class, 'addMisi']);
+    Route::get('/dashboard/homepage', [HomepageController::class, 'show']);
+    Route::get('/dashboard/deleteVisi', [HomepageController::class, 'deleteVisi']);
+    Route::get('/dashboard/deleteMisi/{id}', [HomepageController::class, 'deleteMisi']);
+    Route::post('/dashboard/updateVisi', [HomepageController::class, 'updateVisi']);
+    Route::post('/dashboard/updateData', [HomepageController::class, 'updateData']);
+    Route::post('/dashboard/updateNamaCamat', [HomepageController::class, 'updateNamaCamat']);
+    Route::post('/dashboard/updateFotoCamat', [HomepageController::class, 'updateFotoCamat']);
+    Route::post('/dashboard/updateFotoPengurus', [HomepageController::class, 'updateFotoPengurus']);
+    Route::post('/dashboard/updateMisi/{id}', [HomepageController::class, 'updateMisi']);
+    Route::post('/dashboard/addMisi', [HomepageController::class, 'addMisi']);
 
     Route::resource('/dashboard/publikasi', PublishController::class)->only(['index', 'show', 'update']);
 });

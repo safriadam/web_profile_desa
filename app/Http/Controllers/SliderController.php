@@ -20,8 +20,20 @@ class SliderController extends Controller
             'title' => 'Tambah Gambar Slider',
         ]);
     }
+    public function delete($id){
+        $gambar = Gambar::where('id', $id)->first();
+        $gambar->delete();
+        return redirect()->back();
+    }
+    public function update($id){
+        $gambar = Gambar::where('id', $id)->first();
+
+        return view('Dashboard.Pages.Slider.Create', [
+            'title' => 'Tambah Gambar Slider',
+            'gambar' => $gambar,
+        ]);
+    }
     public function upload(Request $request){
-        
         
         $file = $request->file('image');
         $namafile = time().'.'.$file->getClientOriginalExtension();

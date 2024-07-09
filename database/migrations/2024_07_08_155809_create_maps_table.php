@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('maps', function (Blueprint $table) {
+            $table->string('kategori');
             $table->longText('link');
             $table->timestamps();
         });

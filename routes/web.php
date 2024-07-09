@@ -12,6 +12,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\MapsController;
 use App\Models\Gambar;
 use App\Models\Homepage;
 use App\Models\Visi;
@@ -71,6 +72,12 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::resource('/dashboard/pengguna', UserController::class)->only(['index', 'edit', 'update']);
 
+    Route::get('/dashboard/maps', [MapsController::class, 'index']);
+    Route::post('/dashboard/updateMap', [MapsController::class, 'updateMap']);
+    Route::post('/dashboard/updateAlamat', [MapsController::class, 'updateAlamat']);
+    Route::post('/dashboard/updateTelp', [MapsController::class, 'updateTelp']);
+    Route::post('/dashboard/updateEmail', [MapsController::class, 'updateEmail']);
+
     Route::resource('/dashboard/slider', SliderController::class)->only(['index', 'edit', 'update']);
     Route::get('/dashboard/slider/create', [SliderController::class, 'create']);
     Route::post('/dashboard/slider/upload', [SliderController::class, 'upload']);
@@ -87,6 +94,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/dashboard/updateFotoCamat', [HomepageController::class, 'updateFotoCamat']);
     Route::post('/dashboard/updateFotoPengurus', [HomepageController::class, 'updateFotoPengurus']);
     Route::post('/dashboard/updateMisi/{id}', [HomepageController::class, 'updateMisi']);
+    Route::post('/dashboard/updateSambutan', [HomepageController::class, 'updateSambutan']);
+    Route::post('/dashboard/updateNIPCamat', [HomepageController::class, 'updateNIP']);
     Route::post('/dashboard/addMisi', [HomepageController::class, 'addMisi']);
 
     Route::resource('/dashboard/publikasi', PublishController::class)->only(['index', 'show', 'update']);

@@ -16,9 +16,9 @@
             </div>
             <div class="col-md-3">
                 <h5 class="text-light mb-4">Informasi</h5>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Alamat Lengkap</p>
-                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+62 xxxxxxxxxxx</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>admin@domain</p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{$alamat}}</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{$hp}}</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{$email}}</p>
                 {{-- <div class="d-flex pt-2">
                     <a class="btn btn-square btn-outline-secondary rounded-circle me-1"
                         href="https://www.facebook.com/mimh.gogourung" target="_blank"><i

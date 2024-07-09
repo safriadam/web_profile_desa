@@ -8,10 +8,10 @@
         </div>
     </div>
     <div class="container mx-auto text-center">
-        
+        <h4 class="text-dark mb-3">Struktur Organisasi Kecamatan Galing</h4>
         <img class="mt-2" src="{{ asset('assets/img/struktur.jpg') }}" alt="">
         <hr>
-        <h6 class=" text-muted mb-3">Struktur Organisasi Kecamatan Galing</h6>
+        
         
     </div>
 @endsection

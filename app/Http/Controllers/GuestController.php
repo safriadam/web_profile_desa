@@ -31,6 +31,9 @@ class GuestController extends Controller
         return view('Guest.Index', [
             'title' => 'Beranda',
             'maps' => $this->maps,
+            'alamat' => $this->alamat,
+            'hp' => $this->hp,
+            'email' => $this->email,
             'posts' => Post::query()->where('is_published', true)->latest()->limit(10)->get(),
             'visi' => $visi ?? '',
             'misi' => $misi ?? '',
@@ -49,6 +52,9 @@ class GuestController extends Controller
         return view('Guest.About', [
             'title' => 'Tentang Kami',
             'maps' => $this->maps,
+            'alamat' => $this->alamat,
+            'hp' => $this->hp,
+            'email' => $this->email,
             'visi' => $visi,
             'misi' => $misi
         ]);
@@ -57,6 +63,9 @@ class GuestController extends Controller
         return view('Guest.Structure', [
             'title' => 'Struktur Organisasi',
             'maps' => $this->maps,
+            'alamat' => $this->alamat,
+            'hp' => $this->hp,
+            'email' => $this->email,
         ]);
     }
     public function index1()
@@ -64,6 +73,9 @@ class GuestController extends Controller
         return view('Guest.Posts', [
             'title' => 'Semua Kegiatan',
             'maps' => $this->maps,
+            'alamat' => $this->alamat,
+            'hp' => $this->hp,
+            'email' => $this->email,
             "posts" => Post::query()->where('category_id', '=', 2)->where('is_published', true)->latest()->paginate(7)
         ]);
     }
@@ -73,6 +85,9 @@ class GuestController extends Controller
         return view('Guest.Posts', [
             'title' => 'Semua Pengumuman',
             'maps' => $this->maps,
+            'alamat' => $this->alamat,
+            'hp' => $this->hp,
+            'email' => $this->email,
             "posts" => Post::query()->where('category_id', '=', 3)->where('is_published', true)->latest()->paginate(7)
         ]);
     }
@@ -81,14 +96,30 @@ class GuestController extends Controller
         return view('Guest.Posts', [
             'title' => 'Semua Berita',
             'maps' => $this->maps,
+            'alamat' => $this->alamat,
+            'hp' => $this->hp,
+            'email' => $this->email,
             "posts" => Post::query()->where('category_id', '=', 1)->where('is_published', true)->latest()->paginate(7)
         ]);
     }
     public function index4()
     {
+        $sambutan = Homepage::where('kategori', 'sambutan')->first();
+        $nip = Homepage::where('kategori','nip')->first();
+        $tanggal = Homepage::where('kategori','tahunSambutan')->first();
+        $fotoCamat = Homepage::where('kategori', 'leader')->first();
+        $camat = Homepage::where('kategori', 'namaCamat')->first();
         return view('Guest.Sambutan', [
             'title' => 'Sambutan Camat',
             'maps' => $this->maps,
+            'alamat' => $this->alamat,
+            'hp' => $this->hp,
+            'email' => $this->email,
+            'nip' => $nip->value ?? '',
+            'tanggal' => $tanggal->value ?? '',
+            'sambutan' => $sambutan->value,
+            'camat' => $camat->value ?? '',
+            'fotoCamat' => $fotoCamat->value ?? '',
         ]);
     }
 
@@ -103,6 +134,9 @@ class GuestController extends Controller
         return view('Guest.Post', [
             "title" => $post->title,
             'maps' => $this->maps,
+            'alamat' => $this->alamat,
+            'hp' => $this->hp,
+            'email' => $this->email,
             "post" => $post
         ]);
     }

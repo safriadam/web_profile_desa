@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Gambar;
 use App\Models\Homepage;
 use App\Models\Post;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HomepageController extends Controller
@@ -12,8 +13,8 @@ class HomepageController extends Controller
     
     
     function show(){
-        $maps = $this->maps;
-        // return $maps;
+        $sambutan = Homepage::where('kategori', 'sambutan')->first();
+        $nip = Homepage::where('kategori', 'nip')->first();
         $fotoCamat = Homepage::where('kategori', 'leader')->first();
         $fotoPengurus = Homepage::where('kategori', 'jajaran')->first();
         $tahun = Homepage::where('kategori', 'sejakTahun')->first();
@@ -24,8 +25,8 @@ class HomepageController extends Controller
         $misi = Homepage::where('kategori', 'misi')->get();
         return view('Dashboard.Pages.Homepage.show', [
             'title' => 'Halaman Utama',
-            'maps' => $maps,
             'visi' => $visi->value ?? '',
+            'nip' => $nip->value ?? '',
             'misi' => $misi ?? '',
             'tahun' => $tahun->value ?? '',
             'desa' => $desa->value ?? '',
@@ -33,8 +34,25 @@ class HomepageController extends Controller
             'camat' => $camat->value ?? '',
             'fotoCamat' => $fotoCamat->value ?? '',
             'fotoPengurus' => $fotoPengurus->value ?? '',
+            'sambutan' => $sambutan->value,
         ]);
     
+    }
+    function updateNIP(Request $request){
+        Homepage::where('kategori','nip')->update([
+            'value' => $request->nipCamat ?? '-'
+        ]);
+        return redirect()->back();
+    }
+    function updateSambutan(Request $request){
+        Homepage::where('kategori','sambutan')->update([
+            'value' => $request->sambutan
+        ]);
+        $date = Carbon::now();
+        Homepage::where('kategori','tahunSambutan')->update([
+            'value' => $date->translatedFormat('j F Y')
+        ]);
+        return redirect()->back();
     }
     function updateNamaCamat(Request $request){
         $nama =  $request->namaCamat;

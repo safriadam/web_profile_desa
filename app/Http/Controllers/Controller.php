@@ -12,9 +12,18 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public $maps;
+    public $alamat;
+    public $hp;
+    public $email;
     public function __construct()
     {
-        $this->maps = $this->maps = Maps::all()->first();
+        $this->maps = Maps::where('kategori','maps')->first();
         $this->maps = $this->maps->link;
+        $this->alamat = Maps::where('kategori','alamat')->first();
+        $this->alamat = $this->alamat->link;
+        $this->hp = Maps::where('kategori','phone')->first();
+        $this->hp = $this->hp->link;
+        $this->email = Maps::where('kategori','email')->first();
+        $this->email = $this->email->link;
     }
 }

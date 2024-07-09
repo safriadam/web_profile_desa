@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('homepage', function (Blueprint $table) {
             $table->id();
             $table->string('kategori');
-            $table->string('value');
+            $table->longText('value');
             $table->timestamps();
         });
     }

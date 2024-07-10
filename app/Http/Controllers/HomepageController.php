@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gambar;
 use App\Models\Homepage;
+use App\Models\Post;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HomepageController extends Controller
 {
-    function create(Request $request){
-        
-    }
     function show(){
+        $sambutan = Homepage::where('kategori', 'sambutan')->first();
+        $struktur = Homepage::where('kategori', 'struktur')->first();
+        // return $struktur;
+        $nip = Homepage::where('kategori', 'nip')->first();
         $fotoCamat = Homepage::where('kategori', 'leader')->first();
         $fotoPengurus = Homepage::where('kategori', 'jajaran')->first();
         $tahun = Homepage::where('kategori', 'sejakTahun')->first();
@@ -22,15 +26,44 @@ class HomepageController extends Controller
         return view('Dashboard.Pages.Homepage.show', [
             'title' => 'Halaman Utama',
             'visi' => $visi->value ?? '',
+            'nip' => $nip->value ?? '',
             'misi' => $misi ?? '',
+            'struktur' => $struktur->value ?? '',
             'tahun' => $tahun->value ?? '',
             'desa' => $desa->value ?? '',
             'penduduk' => $penduduk->value ?? '',
             'camat' => $camat->value ?? '',
             'fotoCamat' => $fotoCamat->value ?? '',
             'fotoPengurus' => $fotoPengurus->value ?? '',
+            'sambutan' => $sambutan->value,
         ]);
     
+    }
+    function updateNIP(Request $request){
+        Homepage::where('kategori','nip')->update([
+            'value' => $request->nipCamat ?? '-'
+        ]);
+        return redirect()->back();
+    }
+    function updateStruktur(Request $request){
+        $file = $request->file('struktur');
+        $namafile = time().'.'.$file->getClientOriginalExtension();
+        // return $namafile;
+        $request->struktur->move(public_path('assets/img'), $namafile);
+        Homepage::where('kategori','struktur')->update([
+            'value' => $namafile
+        ]);
+        return redirect()->back();
+    }
+    function updateSambutan(Request $request){
+        Homepage::where('kategori','sambutan')->update([
+            'value' => $request->sambutan
+        ]);
+        $date = Carbon::now();
+        Homepage::where('kategori','tahunSambutan')->update([
+            'value' => $date->translatedFormat('j F Y')
+        ]);
+        return redirect()->back();
     }
     function updateNamaCamat(Request $request){
         $nama =  $request->namaCamat;

@@ -12,6 +12,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\MapsController;
 use App\Models\Gambar;
 use App\Models\Homepage;
 use App\Models\Visi;
@@ -27,43 +28,12 @@ use App\Models\Visi;
 |
 */
 
-Route::get('/', function () {
-    $fotoCamat = Homepage::where('kategori', 'leader')->first();
-    $fotoPengurus = Homepage::where('kategori', 'jajaran')->first();
-    $tahun = Homepage::where('kategori', 'sejakTahun')->first();
-    $camat = Homepage::where('kategori', 'namaCamat')->first();
-    $desa = Homepage::where('kategori', 'jmlDesa')->first();
-    $penduduk = Homepage::where('kategori', 'jmlPenduduk')->first();
-    $slider = Gambar::all();
-    $visi = Homepage::where('kategori', 'visi')->first();
-    $misi = Homepage::where('kategori', 'misi')->get();
-    return view('Guest.Index', [
-        'title' => 'Beranda',
-        'posts' => Post::query()->where('is_published', true)->latest()->limit(10)->get(),
-        'visi' => $visi ?? '',
-        'misi' => $misi ?? '',
-        'tahun' => $tahun->value ?? '',
-        'desa' => $desa->value ?? '',
-        'penduduk' => $penduduk->value ?? '',
-        'camat' => $camat->value ?? '',
-        'fotoCamat' => $fotoCamat->value ?? '',
-        'fotoPengurus' => $fotoPengurus->value ?? '',
-    ], compact('slider'));
-});
-Route::get('/about', function () {
-    $visi = Homepage::where('kategori', 'visi')->first();
-    $misi = Homepage::where('kategori', 'misi')->get();
-    return view('Guest.About', [
-        'title' => 'Tentang Kami',
-        'visi' => $visi,
-        'misi' => $misi
-    ]);
-});
-Route::get('/structure', function () {
-    return view('Guest.Structure', [
-        'title' => 'Struktur Organisasi'
-    ]);
-});
+// Route::get('/', function () {
+//     
+// });
+Route::get('/', [GuestController::class, 'index']);
+Route::get('/about', [GuestController::class, 'about']);
+Route::get('/structure', [GuestController::class, 'structure']);
 
 // Route::get('/prestasi-sekolah', [GuestController::class, 'index']);
 Route::get('/kegiatan', [GuestController::class, 'index1']);
@@ -102,6 +72,12 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::resource('/dashboard/pengguna', UserController::class)->only(['index', 'edit', 'update']);
 
+    Route::get('/dashboard/maps', [MapsController::class, 'index']);
+    Route::post('/dashboard/updateMap', [MapsController::class, 'updateMap']);
+    Route::post('/dashboard/updateAlamat', [MapsController::class, 'updateAlamat']);
+    Route::post('/dashboard/updateTelp', [MapsController::class, 'updateTelp']);
+    Route::post('/dashboard/updateEmail', [MapsController::class, 'updateEmail']);
+
     Route::resource('/dashboard/slider', SliderController::class)->only(['index', 'edit', 'update']);
     Route::get('/dashboard/slider/create', [SliderController::class, 'create']);
     Route::post('/dashboard/slider/upload', [SliderController::class, 'upload']);
@@ -118,6 +94,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/dashboard/updateFotoCamat', [HomepageController::class, 'updateFotoCamat']);
     Route::post('/dashboard/updateFotoPengurus', [HomepageController::class, 'updateFotoPengurus']);
     Route::post('/dashboard/updateMisi/{id}', [HomepageController::class, 'updateMisi']);
+    Route::post('/dashboard/updateSambutan', [HomepageController::class, 'updateSambutan']);
+    Route::post('/dashboard/updateStruktur', [HomepageController::class, 'updateStruktur']);
+    Route::post('/dashboard/updateNIPCamat', [HomepageController::class, 'updateNIP']);
     Route::post('/dashboard/addMisi', [HomepageController::class, 'addMisi']);
 
     Route::resource('/dashboard/publikasi', PublishController::class)->only(['index', 'show', 'update']);

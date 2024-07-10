@@ -54,7 +54,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h6 class="modal-title">Atur Visi</h6>
+                    <h6 class="modal-title">Atur Nama Camat</h6>
                     <button class="btn-close"></button>
                 </div>
                 <div class="modal-body">
@@ -71,11 +71,32 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="nipCamat" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title">Atur NIP Camat</h6>
+                    <button class="btn-close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/dashboard/updateNIPCamat" method="post">
+                        @csrf
+                        <label for="camat" class="form-label">NIP Camat</label>
+                        <input type="number" class="form-control" name="nipCamat" value="{{ $nip ?? '' }}">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" id="fotoCamat" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h6 class="modal-title">Atur Visi</h6>
+                    <h6 class="modal-title">Atur Foto Camat</h6>
                     <button class="btn-close"></button>
                 </div>
                 <div class="modal-body">
@@ -96,7 +117,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h6 class="modal-title">Atur Visi</h6>
+                    <h6 class="modal-title">Atur Foto Pengurus</h6>
                     <button class="btn-close"></button>
                 </div>
                 <div class="modal-body">
@@ -118,7 +139,7 @@
             <div class="mb-2">
                 <label for="tahun" class="form-label">Sejak Tahun</label>
                 <div class="d-flex mb-2">
-                    <input type="number" readonly class="form-control bg-white @error('misi') is-invalid @enderror"
+                    <input type="number" readonly class="form-control bg-white"
                         id="misi" name="tahun" required autofocus value="{{ $tahun }}">
 
                 </div>
@@ -126,7 +147,7 @@
             <div class="mb-2">
                 <label for="tahun" class="form-label">Jumlah Desa</label>
                 <div class="d-flex mb-2">
-                    <input type="number" readonly class="form-control bg-white @error('misi') is-invalid @enderror"
+                    <input type="number" readonly class="form-control bg-white"
                         required autofocus value="{{ $desa }}">
 
                 </div>
@@ -134,7 +155,7 @@
             <div class="mb-2">
                 <label for="tahun" class="form-label">Jumlah Penduduk</label>
                 <div class="d-flex mb-2">
-                    <input type="number" readonly class="form-control bg-white @error('misi') is-invalid @enderror"
+                    <input type="number" readonly class="form-control bg-white"
                         required autofocus value="{{ $penduduk }}">
 
                 </div>
@@ -149,7 +170,7 @@
             <div class="mb-2">
                 <label for="tahun" class="form-label">Nama Camat</label>
                 <div class="d-flex mb-2">
-                    <input type="text" readonly class="form-control bg-white @error('misi') is-invalid @enderror"
+                    <input type="text" readonly class="form-control bg-white"
                         id="misi" name="namaCamat" required autofocus value="{{ $camat }}">
                     <button class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#namaCamat">
                         <span data-feather="edit"></span>
@@ -157,9 +178,19 @@
                 </div>
             </div>
             <div class="mb-2">
+                <label for="tahun" class="form-label">NIP Camat</label>
+                <div class="d-flex mb-2">
+                    <input type="number" readonly class="form-control bg-white"
+                        id="misi" name="nipCamat" required autofocus value="{{ $nip }}">
+                    <button class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#nipCamat">
+                        <span data-feather="edit"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="mb-2">
                 <label for="tahun" class="form-label">Foto Camat <span><i>(Gambar Persegi)</i></span></label>
                 <div class="d-flex mb-2">
-                    <img src="{{ asset('assets/homepage/' . $fotoCamat) }}" alt="Foto Camat" class="w-25">
+                    <img src="{{ asset('assets/homepage/' . $fotoCamat) ?? 'camat.JPG'}}" alt="Foto Camat" class="w-25">
                     <button class="btn btn-primary mx-2 align-self-center" data-bs-toggle="modal"
                         data-bs-target="#fotoCamat">
                         <span data-feather="edit"></span>
@@ -169,33 +200,23 @@
             <div class="mb-2">
                 <label for="tahun" class="form-label">Foto Pengurus <span><i>(Gambar Landscape)</i></span></label>
                 <div class="d-flex mb-2">
-                    <img src="{{ asset('assets/homepage/' . $fotoPengurus) }}" alt="Foto Camat" class="w-50">
+                    <img src="{{ asset('assets/homepage/' . $fotoPengurus) ?? 'pengurus.jpeg' }}" alt="Foto Camat" class="w-50">
                     <button class="btn btn-primary mx-2 align-self-center" data-bs-toggle="modal"
                         data-bs-target="#fotoPengurus">
                         <span data-feather="edit"></span>
                     </button>
                 </div>
             </div>
-            {{-- <div class="mb-2">
-                <label for="tahun" class="form-label">Foto Pengurus</label>
-                <div class="d-flex mb-2">
-                    <input type="text" readonly class="form-control bg-white @error('misi') is-invalid @enderror"
-                        id="misi" name="tahun" required autofocus value="{{$desa}}">
-                    <button class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#updateDesa}">
-                        <span data-feather="edit"></span>
-                    </button>
-                </div>
+        </div>
+        <div class="mb-2">
+            <label for="tahun" class="form-label">Struktur Organisasi</label>
+            <div class="d-flex mb-2">
+                <img src="{{ asset('assets/img/'. $struktur)}}" alt="Struktur Organisasi" class="w-75">
+                <button class="btn btn-primary mx-2 align-self-center" data-bs-toggle="modal"
+                    data-bs-target="#struktur">
+                    <span data-feather="edit"></span>
+                </button>
             </div>
-            <div class="mb-2">
-                <label for="tahun" class="form-label">Foto Camat</label>
-                <div class="d-flex mb-2">
-                    <input type="text" readonly class="form-control bg-white @error('misi') is-invalid @enderror"
-                        id="misi" name="tahun" required autofocus value="{{$penduduk}}">
-                    <button class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#updatePenduduk">
-                        <span data-feather="edit"></span>
-                    </button>
-                </div>
-            </div> --}}
         </div>
         <hr>
         {{-- AREA KERJA --}}
@@ -208,7 +229,7 @@
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalVisi">
                     <span data-feather="edit"></span>
                 </button>
-                <a href="/dashboard/deleteVisi" class="btn btn-danger mx-2"><span data-feather="trash-2"></span></a>
+                {{-- <a href="/dashboard/deleteVisi" class="btn btn-danger mx-2"><span data-feather="trash-2"></span></a> --}}
             </div>
         </div>
         <div id="input-container">
@@ -220,7 +241,7 @@
                     @foreach ($misi as $item)
                         <div class="d-flex mb-2">
                             <input type="text" readonly
-                                class="form-control bg-white @error('misi') is-invalid @enderror" id="misi"
+                                class="form-control bg-white" id="misi"
                                 name="misi" required autofocus value="{{ $item->value }}">
                             <button class="btn btn-primary mx-2" data-bs-toggle="modal"
                                 data-bs-target="#updateMisi{{ $item->id }}">
@@ -260,8 +281,41 @@
                 <span data-feather="plus-circle"></span> Tambah Misi
             </button>
         </div>
+        <hr>
+        <div class="mb-3">
+            <div class="mb-2">
+                <label for="visi" class="form-label">Kata Sambutan</label>
+                <textarea class="form-control bg-white" rows="10" readonly>{{ $sambutan ?? '' }}</textarea>
+            </div>
+            <div class="d-flex">
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSambutan">
+                    <span data-feather="edit"></span>
+                </button>
+            </div>
+        </div>
         <input hidden type="text" class="form-control" id="slug" name="slug" required
             value="{{ old('slug') }}">
+    </div>
+    <div class="modal fade" id="struktur" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title">Atur Struktur</h6>
+                    <button class="btn-close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/dashboard/updateStruktur" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <label for="camat" class="form-label">Struktur</label>
+                        <input type="file" class="form-control" name="struktur" value="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="modal fade" id="modalMisi" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
@@ -275,6 +329,27 @@
                         @csrf
                         <label for="addMisi" class="form-label">Misi</label>
                         <input type="text" class="form-control" name="addMisi">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalSambutan" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title">Atur Sambutan</h6>
+                    <button class="btn-close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/dashboard/updateSambutan" method="post">
+                        @csrf
+                        <label for="addVisi" class="form-label">Sambutan</label>
+                        <textarea name="sambutan" class="form-control" rows="10">{{ $sambutan ?? '' }}</textarea>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>

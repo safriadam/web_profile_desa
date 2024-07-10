@@ -100,10 +100,11 @@
                         <p>"{{ $visi->value ?? '' }}"</p>
                         <p>Misi : </p>
                         @if (!$misi->isEmpty())
-                            <ol>
-                                @foreach ($misi as $item)
-                                    <li>{{ $item->value }}</li>
+                            <ol style="padding-left: 1">
+                                @foreach ($misi->take(2) as $item)
+                                    <li style="padding-left: 0">{{ $item->value ?? '...' }}</li>
                                 @endforeach
+                                <p>. . . . . </p>
                             </ol>
                         @endif
                         <div class="d-flex align-items-center mb-4 pb-2">

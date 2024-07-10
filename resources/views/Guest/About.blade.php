@@ -9,6 +9,10 @@
     </div>
     <div class="container">
         <div class="card p-5">
+            <h3>Tentang Kecamatan Galing</h3>
+            <p class="fst-italic text-dark">"{{$deskripsi->value ?? ''}}"</p>
+        </div>
+        <div class="card p-5 mt-5">
             <h3>Visi</h3>
             <p class="fst-italic text-dark">"{{$visi->value ?? ''}}"</p>
         </div>

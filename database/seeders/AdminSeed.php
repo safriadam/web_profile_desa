@@ -65,6 +65,10 @@ class AdminSeed extends Seeder
                 'value' => '19761222199703 1 004'
             ],
             [
+                'kategori' => 'deskripsi',
+                'value' => 'kecamatan galing merupakan sebuah kecamatan di kabupaten sambas...'
+            ],
+            [
                 'kategori' => 'sambutan',
                 'value' => 'Puji dan syukur dipanjatkan kehadirat Allah Subhanahuwa Taala karena berkat limpahan rahmat-Nya jualah sehingga
             kita masih diberikan umur yang panjang lagi berkah

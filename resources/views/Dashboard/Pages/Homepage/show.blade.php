@@ -29,6 +29,27 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="modalDeskripsi" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title">Atur Deskripsi</h6>
+                    <button class="btn-close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/dashboard/updateDeskripsi" method="post">
+                        @csrf
+                        <label for="addVisi" class="form-label">Visi</label>
+                        <textarea name="addDeskripsi" class="form-control" rows="3">{{ $deskripsi ?? '' }}</textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" id="modalVisi" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -220,6 +241,18 @@
         </div>
         <hr>
         {{-- AREA KERJA --}}
+        <div class="mb-3">
+            <div class="mb-2">
+                <label for="visi" class="form-label">Deskripsi</label>
+                <textarea class="form-control bg-white" rows="3" readonly>{{ $deskripsi ?? '' }}</textarea>
+            </div>
+            <div class="d-flex">
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDeskripsi">
+                    <span data-feather="edit"></span>
+                </button>
+                {{-- <a href="/dashboard/deleteVisi" class="btn btn-danger mx-2"><span data-feather="trash-2"></span></a> --}}
+            </div>
+        </div>
         <div class="mb-3">
             <div class="mb-2">
                 <label for="visi" class="form-label">Visi</label>

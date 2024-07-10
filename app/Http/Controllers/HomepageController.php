@@ -13,7 +13,7 @@ class HomepageController extends Controller
     function show(){
         $sambutan = Homepage::where('kategori', 'sambutan')->first();
         $struktur = Homepage::where('kategori', 'struktur')->first();
-        // return $struktur;
+        $deskripsi = Homepage::where('kategori', 'deskripsi')->first();
         $nip = Homepage::where('kategori', 'nip')->first();
         $fotoCamat = Homepage::where('kategori', 'leader')->first();
         $fotoPengurus = Homepage::where('kategori', 'jajaran')->first();
@@ -25,6 +25,7 @@ class HomepageController extends Controller
         $misi = Homepage::where('kategori', 'misi')->get();
         return view('Dashboard.Pages.Homepage.show', [
             'title' => 'Halaman Utama',
+            'deskripsi' => $deskripsi->value,
             'visi' => $visi->value ?? '',
             'nip' => $nip->value ?? '',
             'misi' => $misi ?? '',
@@ -42,6 +43,12 @@ class HomepageController extends Controller
     function updateNIP(Request $request){
         Homepage::where('kategori','nip')->update([
             'value' => $request->nipCamat ?? '-'
+        ]);
+        return redirect()->back();
+    }
+    function updateDeskripsi(Request $request){
+        Homepage::where('kategori','deskripsi')->update([
+            'value' => $request->addDeskripsi ?? '-'
         ]);
         return redirect()->back();
     }

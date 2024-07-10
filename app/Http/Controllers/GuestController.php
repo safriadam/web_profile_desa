@@ -47,6 +47,7 @@ class GuestController extends Controller
     }
     public function about()
     {
+        $deskripsi = Homepage::where('kategori', 'deskripsi')->first();
         $visi = Homepage::where('kategori', 'visi')->first();
         $misi = Homepage::where('kategori', 'misi')->get();
         return view('Guest.About', [
@@ -55,6 +56,7 @@ class GuestController extends Controller
             'alamat' => $this->alamat,
             'hp' => $this->hp,
             'email' => $this->email,
+            'deskripsi' => $deskripsi,
             'visi' => $visi,
             'misi' => $misi
         ]);

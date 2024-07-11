@@ -6,7 +6,7 @@
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="0" class="active" aria-current="true"
                     aria-label="Slide 1">
-                    <img class="img-fluid" src="{{ asset('assets/img/gedung.jpeg') }}" alt="Image">
+                    <img class="img-fluid" src="{{ asset('assets/img/'. $banner) }}" alt="Image">
                 </button>
                 @foreach ($slider as $item)
                     <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="{{ $loop->iteration }}"
@@ -18,14 +18,14 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="card-img" src="{{ asset('assets/img/gedung.jpeg') }}" alt="Image">
-                    <div class="carousel-caption">
-                        <div class="p-3" style="max-width: 900px;">
+                    <img class="card-img" src="{{ asset('assets/img/'. $banner) }}" alt="Image">
+                    {{-- <div class="carousel-caption"> 
+                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-4 animated zoomIn">Selamat Datang di Website</h4>
                             <h1 class="display-1 text-white mb-0 animated zoomIn">KECAMATAN GALING
                             </h1>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 @if ($slider)
                     @foreach ($slider as $item)

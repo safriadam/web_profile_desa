@@ -19,6 +19,7 @@ class GuestController extends Controller
      */
     function index()
     {
+        $banner = Homepage::where('kategori', 'banner')->first();
         $fotoCamat = Homepage::where('kategori', 'leader')->first();
         $fotoPengurus = Homepage::where('kategori', 'jajaran')->first();
         $tahun = Homepage::where('kategori', 'sejakTahun')->first();
@@ -37,6 +38,7 @@ class GuestController extends Controller
             'posts' => Post::query()->where('is_published', true)->latest()->limit(10)->get(),
             'visi' => $visi ?? '',
             'misi' => $misi ?? '',
+            'banner' => $banner->value ?? '',
             'tahun' => $tahun->value ?? '',
             'desa' => $desa->value ?? '',
             'penduduk' => $penduduk->value ?? '',
@@ -47,6 +49,7 @@ class GuestController extends Controller
     }
     public function about()
     {
+        $header = Homepage::where('kategori','tema')->first();
         $deskripsi = Homepage::where('kategori', 'deskripsi')->first();
         $visi = Homepage::where('kategori', 'visi')->first();
         $misi = Homepage::where('kategori', 'misi')->get();
@@ -58,15 +61,18 @@ class GuestController extends Controller
             'email' => $this->email,
             'deskripsi' => $deskripsi,
             'visi' => $visi,
+            'header' => $header->value,
             'misi' => $misi
         ]);
     }
     public function structure(){
+        $header = Homepage::where('kategori','tema')->first();
         $struktur = Homepage::where('kategori','struktur')->first();
         return view('Guest.Structure', [
             'title' => 'Struktur Organisasi',
             'maps' => $this->maps,
             'alamat' => $this->alamat,
+            'header' => $header->value,
             'struktur' => $struktur->value,
             'hp' => $this->hp,
             'email' => $this->email,
@@ -74,40 +80,46 @@ class GuestController extends Controller
     }
     public function index1()
     {
+        $header = Homepage::where('kategori','tema')->first();
         return view('Guest.Posts', [
             'title' => 'Semua Kegiatan',
             'maps' => $this->maps,
             'alamat' => $this->alamat,
             'hp' => $this->hp,
             'email' => $this->email,
+            'header' => $header->value,
             "posts" => Post::query()->where('category_id', '=', 2)->where('is_published', true)->latest()->paginate(7)
         ]);
     }
     public function index2()
     {
-
+        $header = Homepage::where('kategori','tema')->first();
         return view('Guest.Posts', [
             'title' => 'Semua Pengumuman',
             'maps' => $this->maps,
             'alamat' => $this->alamat,
             'hp' => $this->hp,
             'email' => $this->email,
+            'header' => $header->value,
             "posts" => Post::query()->where('category_id', '=', 3)->where('is_published', true)->latest()->paginate(7)
         ]);
     }
     public function index3()
     {
+        $header = Homepage::where('kategori','tema')->first();
         return view('Guest.Posts', [
             'title' => 'Semua Berita',
             'maps' => $this->maps,
             'alamat' => $this->alamat,
             'hp' => $this->hp,
             'email' => $this->email,
+            'header' => $header->value,
             "posts" => Post::query()->where('category_id', '=', 1)->where('is_published', true)->latest()->paginate(7)
         ]);
     }
     public function index4()
     {
+        $header = Homepage::where('kategori','tema')->first();
         $sambutan = Homepage::where('kategori', 'sambutan')->first();
         $nip = Homepage::where('kategori','nip')->first();
         $tanggal = Homepage::where('kategori','tahunSambutan')->first();
@@ -123,6 +135,7 @@ class GuestController extends Controller
             'tanggal' => $tanggal->value ?? '',
             'sambutan' => $sambutan->value,
             'camat' => $camat->value ?? '',
+            'header' => $header->value,
             'fotoCamat' => $fotoCamat->value ?? '',
         ]);
     }
@@ -135,13 +148,15 @@ class GuestController extends Controller
      */
     public function show(Post $post)
     {
+        $header = Homepage::where('kategori','tema')->first();
         return view('Guest.Post', [
             "title" => $post->title,
             'maps' => $this->maps,
             'alamat' => $this->alamat,
             'hp' => $this->hp,
             'email' => $this->email,
-            "post" => $post
+            "post" => $post,
+            'header' => $header->value,
         ]);
     }
 }

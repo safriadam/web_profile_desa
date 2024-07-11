@@ -29,25 +29,72 @@
                     </tr>
                 @endforeach
             </tbody>
-            {{-- <tbody>
-                @foreach ($categories as $post)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $post->name }}</td>
-                        <td class="text-end">
-                            <a href="/dashboard/kategori/{{ $post->slug }}/edit" class="badge bg-warning"><span
-                                    data-feather="edit"></span></a>
-                            <form action="/dashboard/kategori/{{ $post->slug }}" method="POST" class="d-inline">
-                                @method('delete')
-                                @csrf
-                                <button class="badge bg-danger border-0"
-                                    onclick="return confirm('Apakah Anda yakin menghapus data kategori {{ $post->name }}?')"><span
-                                        data-feather="trash"></span></button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody> --}}
         </table>
+    </div>
+    <hr>
+    <h4>Gambar Utama</h4>
+    <div class="mb-2">
+        <label for="tahun" class="form-label">Gambar Utama <span><i>(Gambar Landscape)</i></span></label>
+        <div class="d-flex mb-2">
+            <img src="{{ asset('assets/img/' . $banner) ?? 'banner.png' }}" alt="Banner" class="w-50">
+            <button class="btn btn-primary mx-2 align-self-center" data-bs-toggle="modal"
+                data-bs-target="#mainPict">
+                <span data-feather="edit"></span>
+            </button>
+        </div>
+    </div>
+    <hr>
+    <h4>Gambar Tema</h4>
+    <div class="mb-2">
+        <label for="tahun" class="form-label">Gambar Tema <span><i>(Gambar Landscape)</i></span></label>
+        <div class="d-flex mb-2">
+            <img src="{{ asset('assets/img/' . $tema) ?? 'header.jpg' }}" alt="Tema" class="w-50">
+            <button class="btn btn-primary mx-2 align-self-center" data-bs-toggle="modal"
+                data-bs-target="#mainTema">
+                <span data-feather="edit"></span>
+            </button>
+        </div>
+    </div>
+    <div class="modal fade" id="mainPict" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title">Atur Gambar Utama</h6>
+                    <button class="btn-close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/dashboard/updateBanner" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <label for="camat" class="form-label">Atur Gambar Utama</label>
+                        <input type="file" class="form-control" name="banner" value="{{ $banner->value ?? '' }}">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mainTema" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title">Atur Gambar Tema</h6>
+                    <button class="btn-close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/dashboard/updateTema" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <label for="camat" class="form-label">Atur Gambar Tema</label>
+                        <input type="file" class="form-control" name="tema" value="{{ $tema->value ?? '' }}">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

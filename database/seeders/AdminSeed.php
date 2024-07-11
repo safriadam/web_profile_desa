@@ -42,15 +42,15 @@ class AdminSeed extends Seeder
             ],
             [
                 'kategori' => 'jajaran',
-                'value' => 'pengurus.jpeg'
+                'value' => 'OfficersDefault.jpeg'
             ],
             [
                 'kategori' => 'struktur',
-                'value' => 'struktur.jpg'
+                'value' => 'StructureDefault.jpg'
             ],
             [
                 'kategori' => 'leader',
-                'value' => 'camat.JPG'
+                'value' => 'PersonDefault.jpeg'
             ],
             [
                 'kategori' => 'namaCamat',
@@ -69,24 +69,24 @@ class AdminSeed extends Seeder
                 'value' => 'kecamatan galing merupakan sebuah kecamatan di kabupaten sambas...'
             ],
             [
+                'kategori' => 'banner',
+                'value' => 'BannerDefault.png'
+            ],
+            [
+                'kategori' => 'tema',
+                'value' => 'HeaderDefault.jpg'
+            ],
+            [
                 'kategori' => 'sambutan',
-                'value' => 'Puji dan syukur dipanjatkan kehadirat Allah Subhanahuwa Taala karena berkat limpahan rahmat-Nya jualah sehingga
-            kita masih diberikan umur yang panjang lagi berkah
-        Kecamatan Galing merupakan salah satu dari 19 kecamatan di Kabupaten Sambas yang merupakan penyangga (hynterland)
-            daerah perbatan beik Paloh maupun Sajingan. Jumlah desa di Kecamatan Galing sebanyak 10 desa yakni, Desa Tri
-            Kembang, Desa Ratu Sepudak, Desa Galing, Desa Sungai Palah, Desa Sijang, Desa Tri Gadu, Desa Tempapan Kuala,
-            Desa Tempapan Hulu, Desa Teluk Pandan dan Desa Sagu. Di Kecamatan Galing terdapat 23 dusun dengan potensi yang
-            ada terdiri dari pertanian, perkebunan dan perdagangan.
-        Jumlah penduduk Kecamatan Galing berdasarkan Laporan dari Dinas Catatan Sipil Kabupaten Sambas Bulan Desember
-            2023 berjumlah 26.002 orang dengan mayoritas beragama islam. Mata pencaharian penduduk sebagian besar merupakan
-            petani dengan usaha perkebunan dan pertanian yang dominan berupa kelapa sawit, karet, padi. Sedangkan
-            buah-buahan yang dominan berupa semangka
-       Galing merupakan kota sejarah. Dimana dahulu kerajaan Sambas pernah terpusat di Kota Lama dengan Rajanya bernama
-            Ratu Sepudak. Setelah masa pemerintahan Ratu Sepudak dilanjutkan oleh Ratu Kesuma Yuda, lokasi kerajaan
-            berpindah ke Selakau. Selanjutnya setelah Ratu Kesuma Yuda dilanjutkan dengan Raden Sulaiman dengan gelar
-            Sulthan Tsafiuddin, barulah ibukota berpidah di Teluk Madung dan setelahnya berpindah di Muara Ulakan atau di
-            Kecamatan Sambas saat ini.
-       Semoga Website Kecamatan Galing ini bisa memberikan manfaat bagi semua.'
+                'value' => 'Puji dan syukur dipanjatkan kehadirat Allah Subhanahuwa Taala karena berkat limpahan rahmat-Nya jualah sehingga kita masih diberikan umur yang panjang lagi berkah.
+
+Kecamatan Galing merupakan salah satu dari 19 kecamatan di Kabupaten Sambas yang merupakan penyangga (hynterland) perbatasann baik Paloh maupun Sajingan. Jumlah desa di Kecamatan Galing sebanyak 10 desa yakni, Desa Tri Kembang, Desa Ratu Sepudak, Desa Galing, Desa Sungai Palah, Desa Sijang, Desa Tri Gadu, Desa Tempapan Kuala, Desa Tempapan Hulu, Desa Teluk Pandan dan Desa Sagu. Di Kecamatan Galing terdapat 23 dusun dengan potensi yang ada terdiri dari pertanian, perkebunan dan perdagangan.
+
+Jumlah penduduk Kecamatan Galing berdasarkan Laporan dari Dinas Catatan Sipil Kabupaten Sambas Bulan Desember 2023 berjumlah 26.002 orang dengan mayoritas beragama islam. Mata pencaharian penduduk sebagian besar merupakan petani dengan usaha perkebunan dan pertanian yang dominan berupa kelapa sawit, karet, padi. Sedangkan buah-buahan yang dominan berupa semangka.
+
+Galing merupakan kota sejarah. Dimana dahulu kerajaan Sambas pernah terpusat di Kota Lama dengan Rajanya bernama Ratu Sepudak. Setelah masa pemerintahan Ratu Sepudak dilanjutkan oleh Ratu Kesuma Yuda, lokasi kerajaan berpindah ke Selakau. Selanjutnya setelah Ratu Kesuma Yuda dilanjutkan dengan Raden Sulaiman dengan gelar Sulthan Tsafiuddin, barulah ibukota berpidah di Teluk Madung dan setelahnya berpindah di Muara Ulakan atau di Kecamatan Sambas saat ini.
+
+Semoga Website Kecamatan Galing ini bisa memberikan manfaat bagi semua.'
             ],
 
         ]);

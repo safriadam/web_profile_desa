@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gambar;
+use App\Models\Homepage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -11,9 +12,14 @@ class SliderController extends Controller
     public function index()
     {
         $gambar = Gambar::all();
+        $banner = Homepage::where('kategori','banner')->first();
+        $tema = Homepage::where('kategori','tema')->first();
         return view('Dashboard.Pages.Slider.Index', [
             'title' => 'Gambar Slider',
-        ], compact('gambar'));
+            'gambar' => $gambar,
+            'banner' => $banner->value ?? '',
+            'tema' => $tema->value ?? '',
+        ]);
     }
     public function create(){
         return view('Dashboard.Pages.Slider.Create', [
@@ -32,6 +38,26 @@ class SliderController extends Controller
             'title' => 'Tambah Gambar Slider',
             'gambar' => $gambar,
         ]);
+    }
+    public function updateBanner(Request $request){
+        $file = $request->file('banner');
+        $namafile = time().'.'.$file->getClientOriginalExtension();
+
+        $request->banner->move(public_path('assets/img'), $namafile);
+        Homepage::where('kategori','banner')->update([
+            'value' => $namafile
+        ]);
+        return redirect()->back();
+    }
+    public function updateTema(Request $request){
+        $file = $request->file('tema');
+        $namafile = time().'.'.$file->getClientOriginalExtension();
+
+        $request->tema->move(public_path('assets/img'), $namafile);
+        Homepage::where('kategori','tema')->update([
+            'value' => $namafile
+        ]);
+        return redirect()->back();
     }
     public function upload(Request $request){
         

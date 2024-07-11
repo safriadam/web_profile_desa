@@ -83,6 +83,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/dashboard/slider/upload', [SliderController::class, 'upload']);
     Route::get('/dashboard/slider/update/{id}', [SliderController::class, 'update']);
     Route::post('/dashboard/slider/update', [SliderController::class, 'uploadUpdate']);
+    Route::post('/dashboard/updateBanner', [SliderController::class, 'updateBanner']);
+    Route::post('/dashboard/updateTema', [SliderController::class, 'updateTema']);
     Route::get('/dashboard/slider/delete/{id}', [SliderController::class, 'delete']);
 
     Route::get('/dashboard/homepage', [HomepageController::class, 'show']);

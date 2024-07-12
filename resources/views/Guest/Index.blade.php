@@ -18,7 +18,7 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="card-img" src="{{ asset('assets/img/'. $banner) }}" alt="Image">
+                    <img class="card-img" style="max-width: 100vw; width: 100vw" src="{{ asset('assets/img/'. $banner) }}" alt="Image">
                     {{-- <div class="carousel-caption"> 
                          <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-4 animated zoomIn">Selamat Datang di Website</h4>

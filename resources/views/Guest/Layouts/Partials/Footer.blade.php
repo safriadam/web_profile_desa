@@ -42,7 +42,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; 2024 Kecamatan Galing
+                    <span><span class="fw-bold">2024, Kecamatan Galing</span> &copy; Jagad Borneo Solutions</span>
                 </div>
             </div>
         </div>

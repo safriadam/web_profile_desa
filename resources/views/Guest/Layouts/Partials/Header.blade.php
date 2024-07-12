@@ -75,7 +75,7 @@
             <div class="d-flex align-items-center">
                 <img src="{{ asset('favicon48x48.png') }}" alt="Logo" width="50" height="50">
                 <span>
-                    <h3 class="fw-bold text-light m-0 d-inline-block ms-3">KECAMATAN GALING</h3>
+                    <h3 class="fw-bold text-light m-0 d-inline-block ms-1">KECAMATAN GALING</h3>
                 </span>
             </div>
         </a>

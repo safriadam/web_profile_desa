@@ -26,7 +26,7 @@
         <h5>{{ $camat }}</h5>
         <p>CAMAT GALING</p>
         <div class="px-5">
-            <p class="wrap" style="text-align: justify">{{$sambutan}}</p>
+            <p class="wrap" style="text-align: justify">       {{$sambutan}}</p>
         </div>
         <br><br>
         <p>Galing, {{$tanggal}}</p>
